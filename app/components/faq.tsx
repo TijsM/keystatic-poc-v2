@@ -13,6 +13,8 @@ type FaqItem = {
   };
 };
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
   const [open, setOpen] = useState(false);
 
@@ -23,8 +25,8 @@ function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
       viewport={{ once: true, margin: '-30px' }}
       transition={{
         duration: 0.6,
-        delay: index * 0.08,
-        ease: [0.16, 1, 0.3, 1],
+        delay: index * 0.06,
+        ease,
       }}
       className="border-b border-border/70"
     >
@@ -80,41 +82,47 @@ export function Faq({ items }: { items: FaqItem[] }) {
   return (
     <section id="faq" className="bg-background py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr]">
-          <div className="lg:sticky lg:top-28 lg:self-start">
-            <motion.span
+        {/* Header — consistent style */}
+        <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
+          <div>
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ ease: [0.16, 1, 0.3, 1] }}
-              className="text-xs font-semibold tracking-widest text-primary uppercase"
+              transition={{ ease }}
             >
-              FAQ
-            </motion.span>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-primary uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                FAQ
+              </span>
+            </motion.div>
             <div className="mt-4">
               <TextReveal
                 as="h2"
-                className="font-heading text-4xl text-foreground md:text-5xl"
+                className="font-heading text-4xl text-foreground md:text-5xl lg:text-6xl"
               >
                 Veelgestelde vragen
               </TextReveal>
             </div>
+          </div>
+          <div className="flex items-end">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5 text-muted"
+              transition={{ delay: 0.3, ease }}
+              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto"
             >
               Alles wat je wilt weten over Website als Service
             </motion.p>
           </div>
+        </div>
 
-          <div>
-            {sorted.map((item, i) => (
-              <FaqAccordionItem key={item.slug} item={item} index={i} />
-            ))}
-          </div>
+        {/* Accordion */}
+        <div className="mx-auto mt-16 max-w-3xl">
+          {sorted.map((item, i) => (
+            <FaqAccordionItem key={item.slug} item={item} index={i} />
+          ))}
         </div>
       </div>
     </section>

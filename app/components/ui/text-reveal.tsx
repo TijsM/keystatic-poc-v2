@@ -32,7 +32,7 @@ export function TextReveal({
             className="inline-block"
             initial={{ y: '110%', rotateX: -80 }}
             whileInView={{ y: '0%', rotateX: 0 }}
-            viewport={{ once: true, margin: '-10%' }}
+            viewport={{ once: true, margin: '-50px' }}
             transition={{
               duration: 0.8,
               delay: delay + i * staggerSpeed,
