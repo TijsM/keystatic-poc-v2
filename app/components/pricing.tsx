@@ -3,21 +3,27 @@
 import { motion } from 'framer-motion';
 import { TextReveal } from './ui/text-reveal';
 import { Button } from './ui/button';
-import { NumberCounter } from './ui/number-counter';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
-export function Pricing({
-  monthlyPrice,
-  ctaText,
-  guarantee,
-  features,
-}: {
-  monthlyPrice: string;
-  ctaText: string;
-  guarantee: string;
+type Tier = {
+  name: string;
+  price: string;
+  yearlyPrice: string;
+  description: string;
+  highlighted: boolean;
   features: readonly string[];
+  ctaText: string;
+};
+
+export function Pricing({
+  tiers,
+  guarantee,
+}: {
+  tiers: readonly Tier[];
+  guarantee: string;
 }) {
+
   return (
     <section id="prijzen" className="bg-primary-light py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -50,74 +56,73 @@ export function Pricing({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, ease }}
-              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto"
+              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto lg:text-right"
             >
-              Eén prijs, alles inbegrepen. Geen verborgen kosten, geen
-              verrassingen achteraf.
+              Geen opstartkosten, geen verborgen kosten.
             </motion.p>
           </div>
         </div>
 
-        {/* Pricing card — asymmetric layout */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.8, delay: 0.2, ease }}
-          className="mt-16"
-        >
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-lg">
-            <div className="grid lg:grid-cols-[1fr_1.2fr]">
-              {/* Left: price */}
-              <div className="flex flex-col justify-center border-b border-border/40 p-10 lg:border-b-0 lg:border-r lg:p-14">
+        {/* Tier cards */}
+        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+          {tiers.map((tier, i) => (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.12,
+                ease,
+              }}
+              className={`relative flex flex-col overflow-hidden rounded-2xl border bg-card ${
+                tier.highlighted
+                  ? 'border-primary shadow-lg shadow-primary/10'
+                  : 'border-border/60'
+              }`}
+            >
+              {/* Highlighted badge */}
+              {tier.highlighted && (
+                <div className="bg-primary px-4 py-2 text-center text-xs font-semibold tracking-wider text-white uppercase">
+                  Meest gekozen
+                </div>
+              )}
+
+              <div className="flex flex-1 flex-col p-8 md:p-10">
+                {/* Tier name + description */}
                 <div>
+                  <h3 className="font-heading text-2xl text-foreground">
+                    {tier.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted">{tier.description}</p>
+                </div>
+
+                {/* Price */}
+                <div className="mt-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl text-muted">&euro;</span>
-                    <span className="font-heading text-7xl text-foreground md:text-8xl">
-                      <NumberCounter
-                        value={parseFloat(monthlyPrice)}
-                        duration={1.5}
-                      />
+                    <span className="text-lg text-muted">&euro;</span>
+                    <span className="font-heading text-5xl text-foreground md:text-6xl">
+                      {tier.price}
                     </span>
                   </div>
-                  <p className="mt-2 text-muted">
-                    per maand &middot; geen opstartkosten
+                  <p className="mt-1 text-sm text-muted">
+                    per maand
                   </p>
                 </div>
 
-                <div className="mt-10">
-                  <Button href="#contact" size="large" className="w-full">
-                    {ctaText}
-                  </Button>
-                </div>
-                {guarantee && (
-                  <p className="mt-4 text-center text-sm text-muted">
-                    {guarantee}
-                  </p>
-                )}
-              </div>
+                {/* Divider */}
+                <div className="my-8 h-px bg-border/60" />
 
-              {/* Right: features */}
-              <div className="p-10 lg:p-14">
-                <p className="text-xs font-semibold tracking-widest text-foreground uppercase">
-                  Wat je krijgt
-                </p>
-                <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {features.map((feature, i) => (
-                    <motion.li
-                      key={i}
-                      initial={{ opacity: 0, x: -10 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.1 + i * 0.05,
-                        ease,
-                      }}
+                {/* Features */}
+                <ul className="flex-1 space-y-3">
+                  {tier.features.map((feature, j) => (
+                    <li
+                      key={j}
                       className="flex items-start gap-3"
                     >
                       <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-primary"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -129,16 +134,41 @@ export function Pricing({
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-[15px] text-foreground">
+                      <span className="text-sm text-foreground">
                         {feature}
                       </span>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
+
+                {/* CTA */}
+                <div className="mt-8">
+                  <Button
+                    href="#contact"
+                    variant={tier.highlighted ? 'primary' : 'secondary'}
+                    size="large"
+                    className="w-full"
+                  >
+                    {tier.ctaText}
+                  </Button>
+                </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Guarantee */}
+        {guarantee && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.5, ease }}
+            className="mt-8 text-center text-sm text-muted"
+          >
+            {guarantee}
+          </motion.p>
+        )}
       </div>
     </section>
   );

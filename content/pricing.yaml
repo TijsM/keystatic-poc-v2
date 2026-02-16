@@ -1,12 +1,43 @@
-monthlyPrice: '100'
-ctaText: Begin nu — geen opstartkosten
 guarantee: 30 dagen niet-goed-geld-terug garantie. Geen vragen.
-features:
-  - Professioneel maatwerk design
-  - Mobiel-vriendelijke website
-  - Zoekmachineoptimalisatie (SEO)
-  - SSL-certificaat en hosting inbegrepen
-  - Content Management Systeem (CMS)
-  - Maandelijks onderhoud en updates
-  - Persoonlijke ondersteuning
-  - 99,9% uptime garantie
+tiers:
+  - name: Starter
+    price: '59'
+    yearlyPrice: '49'
+    description: Perfect voor ondernemers die snel online willen.
+    highlighted: false
+    features:
+      - One-pager (1 pagina)
+      - Op maat ontworpen
+      - Domein + hosting + SSL
+      - Basis SEO
+      - 1 content update per maand
+    ctaText: Start nu
+  - name: Groei
+    price: '99'
+    yearlyPrice: '79'
+    description: Voor bedrijven die willen groeien met hun website.
+    highlighted: true
+    features:
+      - Tot 5 pagina's
+      - Op maat ontworpen
+      - Domein + hosting + SSL
+      - SEO + Google Search Console
+      - 2 content updates per maand
+      - Contactformulier
+      - Zelf content beheren (CMS)
+    ctaText: Meest gekozen
+  - name: Professioneel
+    price: '149'
+    yearlyPrice: '125'
+    description: De complete oplossing voor gevestigde bedrijven.
+    highlighted: false
+    features:
+      - Tot 10 pagina's
+      - Op maat ontworpen + branding
+      - Domein + hosting + SSL
+      - Volledige SEO + maandrapportage
+      - 4 content updates per maand
+      - Zelf content beheren (CMS)
+      - Meertalig (2 talen)
+      - Boekingssysteem / webshop-ready
+    ctaText: Neem contact op

@@ -31,13 +31,25 @@ export default config({
       label: 'Pricing',
       path: 'content/pricing',
       schema: {
-        monthlyPrice: fields.text({ label: 'Monthly Price' }),
-        ctaText: fields.text({ label: 'CTA Button Text' }),
         guarantee: fields.text({ label: 'Guarantee Text' }),
-        features: fields.array(fields.text({ label: 'Feature' }), {
-          label: 'Included Features',
-          itemLabel: (props) => props.value || 'Feature',
-        }),
+        tiers: fields.array(
+          fields.object({
+            name: fields.text({ label: 'Tier Name' }),
+            price: fields.text({ label: 'Monthly Price' }),
+            yearlyPrice: fields.text({ label: 'Yearly Price (per month)' }),
+            description: fields.text({ label: 'Short Description' }),
+            highlighted: fields.checkbox({ label: 'Highlighted (recommended)' }),
+            features: fields.array(fields.text({ label: 'Feature' }), {
+              label: 'Features',
+              itemLabel: (props) => props.value || 'Feature',
+            }),
+            ctaText: fields.text({ label: 'CTA Button Text' }),
+          }),
+          {
+            label: 'Pricing Tiers',
+            itemLabel: (props) => props.fields.name.value || 'Tier',
+          },
+        ),
       },
     }),
     finalCta: singleton({

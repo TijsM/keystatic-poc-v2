@@ -58,10 +58,8 @@ export default async function Homepage() {
         />
         <Testimonials testimonials={testimonials} />
         <Pricing
-          monthlyPrice={pricing?.monthlyPrice ?? '100'}
-          ctaText={pricing?.ctaText ?? 'Begin nu'}
+          tiers={pricing?.tiers ?? []}
           guarantee={pricing?.guarantee ?? ''}
-          features={pricing?.features ?? []}
         />
         <Faq items={faqs} />
         <CtaSection
