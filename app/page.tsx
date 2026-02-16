@@ -72,10 +72,13 @@ export default async function Homepage() {
       </main>
       <Footer
         brandName={siteSettings?.brandName ?? 'Rodi Digital'}
-        email={siteSettings?.email ?? ''}
-        phone={siteSettings?.phone ?? ''}
+        email={siteSettings?.email ?? 'hello@rodi-digital.com'}
+        whatsapp={siteSettings?.whatsapp ?? ''}
+        address={siteSettings?.address ?? ''}
+        postalCode={siteSettings?.postalCode ?? ''}
         city={siteSettings?.city ?? ''}
-        kvkNumber={siteSettings?.kvkNumber ?? ''}
+        btwNumber={siteSettings?.btwNumber ?? ''}
+        linkedin={siteSettings?.linkedin ?? ''}
       />
     </>
   );

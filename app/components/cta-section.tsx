@@ -66,7 +66,7 @@ export function CtaSection({
             className="mt-10"
           >
             <Button
-              href="mailto:info@rodidigital.nl"
+              href="mailto:hello@rodi-digital.com"
               variant="white"
               size="large"
             >

@@ -46,9 +46,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               name: 'Rodi Digital',
               description:
                 'Professionele websites als abonnement voor het MKB',
+              email: 'hello@rodi-digital.com',
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Amsterdam',
+                streetAddress: 'Stationsweg 19',
+                postalCode: '5211 TV',
+                addressLocality: "'s-Hertogenbosch",
                 addressCountry: 'NL',
               },
               priceRange: '€100/maand',
