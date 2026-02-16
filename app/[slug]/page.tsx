@@ -1,4 +1,3 @@
-import '../styles.css';
 import React from 'react';
 import Markdoc from '@markdoc/markdoc';
 import { reader } from '../reader';

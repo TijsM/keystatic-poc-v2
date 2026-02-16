@@ -1,12 +1,109 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, singleton, fields } from '@keystatic/core';
 
 export const markdocConfig = fields.markdoc.createMarkdocConfig({});
 
 export default config({
   storage: {
-    kind: 'local',
+    kind: 'cloud',
+  },
+  cloud: {
+    project: '<TEAM_NAME>/<PROJECT_NAME>',
+  },
+  singletons: {
+    hero: singleton({
+      label: 'Hero',
+      path: 'content/hero',
+      schema: {
+        headline: fields.text({ label: 'Headline' }),
+        subheadline: fields.text({ label: 'Subheadline' }),
+        ctaText: fields.text({ label: 'CTA Button Text' }),
+      },
+    }),
+    problem: singleton({
+      label: 'Problem',
+      path: 'content/problem',
+      schema: {
+        headline: fields.text({ label: 'Headline' }),
+        body: fields.text({ label: 'Body', multiline: true }),
+      },
+    }),
+    pricing: singleton({
+      label: 'Pricing',
+      path: 'content/pricing',
+      schema: {
+        monthlyPrice: fields.text({ label: 'Monthly Price' }),
+        ctaText: fields.text({ label: 'CTA Button Text' }),
+        guarantee: fields.text({ label: 'Guarantee Text' }),
+        features: fields.array(fields.text({ label: 'Feature' }), {
+          label: 'Included Features',
+          itemLabel: (props) => props.value || 'Feature',
+        }),
+      },
+    }),
+    finalCta: singleton({
+      label: 'Final CTA',
+      path: 'content/final-cta',
+      schema: {
+        headline: fields.text({ label: 'Headline' }),
+        subtext: fields.text({ label: 'Subtext' }),
+        buttonText: fields.text({ label: 'Button Text' }),
+      },
+    }),
+    siteSettings: singleton({
+      label: 'Site Settings',
+      path: 'content/site-settings',
+      schema: {
+        brandName: fields.text({ label: 'Brand Name' }),
+        phone: fields.text({ label: 'Phone Number' }),
+        email: fields.text({ label: 'Email Address' }),
+        city: fields.text({ label: 'City' }),
+        kvkNumber: fields.text({ label: 'KVK Number' }),
+      },
+    }),
   },
   collections: {
+    features: collection({
+      label: 'Features',
+      slugField: 'title',
+      path: 'content/features/*',
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        description: fields.text({ label: 'Description' }),
+        icon: fields.text({ label: 'Icon (emoji)' }),
+        order: fields.integer({ label: 'Order' }),
+      },
+    }),
+    processSteps: collection({
+      label: 'Process Steps',
+      slugField: 'title',
+      path: 'content/process-steps/*',
+      schema: {
+        title: fields.slug({ name: { label: 'Title' } }),
+        description: fields.text({ label: 'Description' }),
+        stepNumber: fields.integer({ label: 'Step Number' }),
+      },
+    }),
+    testimonials: collection({
+      label: 'Testimonials',
+      slugField: 'name',
+      path: 'content/testimonials/*',
+      schema: {
+        name: fields.slug({ name: { label: 'Name' } }),
+        role: fields.text({ label: 'Role' }),
+        company: fields.text({ label: 'Company' }),
+        quote: fields.text({ label: 'Quote', multiline: true }),
+      },
+    }),
+    faqs: collection({
+      label: 'FAQs',
+      slugField: 'question',
+      path: 'content/faqs/*',
+      schema: {
+        question: fields.slug({ name: { label: 'Question' } }),
+        answer: fields.text({ label: 'Answer', multiline: true }),
+        order: fields.integer({ label: 'Order' }),
+      },
+    }),
     posts: collection({
       label: 'Posts',
       slugField: 'title',
