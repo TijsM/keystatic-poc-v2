@@ -1,0 +1,13 @@
+items:
+  - value: '50'
+    suffix: '+'
+    label: Websites gebouwd
+  - value: '99.9'
+    suffix: '%'
+    label: Uptime garantie
+  - value: '2'
+    suffix: 's'
+    label: Gemiddelde laadtijd
+  - value: '24'
+    suffix: '/7'
+    label: Support beschikbaar

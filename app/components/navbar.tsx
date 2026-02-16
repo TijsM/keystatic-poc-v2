@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 const navLinks = [
   { label: 'Hoe het werkt', href: '#proces' },
@@ -13,96 +13,118 @@ const navLinks = [
 export function Navbar({ brandName }: { brandName: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      initial={shouldReduceMotion ? false : { y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-background/95 backdrop-blur-sm shadow-sm'
+          ? 'bg-background/80 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-xl'
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <a
           href="#"
-          className="font-heading text-2xl font-bold text-foreground"
+          className="font-heading text-2xl text-foreground transition-opacity hover:opacity-70"
         >
           {brandName}
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-[13px] font-medium tracking-wide text-muted uppercase transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent-hover"
+            className="rounded-full bg-foreground px-6 py-2.5 text-[13px] font-semibold text-background transition-all duration-300 hover:bg-foreground/85"
           >
             Contact
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
           aria-label="Menu"
         >
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-transform ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`}
+          <motion.span
+            animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+            className="block h-[2px] w-5 bg-foreground"
+            transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
           />
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-opacity ${mobileOpen ? 'opacity-0' : ''}`}
+          <motion.span
+            animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+            className="block h-[2px] w-5 bg-foreground"
+            transition={{ duration: 0.2 }}
           />
-          <span
-            className={`block h-0.5 w-6 bg-foreground transition-transform ${mobileOpen ? '-translate-y-2 -rotate-45' : ''}`}
+          <motion.span
+            animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+            className="block h-[2px] w-5 bg-foreground"
+            transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
           />
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          className="border-t border-border bg-background px-6 pb-6 md:hidden"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block py-3 text-muted transition-colors hover:text-foreground"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent-hover"
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-x-0 top-full border-t border-border/50 bg-background/95 px-6 pb-8 pt-4 backdrop-blur-xl md:hidden"
           >
-            Contact
-          </a>
-        </motion.div>
-      )}
+            {navLinks.map((link, i) => (
+              <motion.a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="block py-3 text-lg text-foreground"
+              >
+                {link.label}
+              </motion.a>
+            ))}
+            <motion.a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: navLinks.length * 0.05 }}
+              className="mt-4 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
+            >
+              Contact
+            </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }

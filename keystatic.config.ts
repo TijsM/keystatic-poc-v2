@@ -49,6 +49,23 @@ export default config({
         buttonText: fields.text({ label: 'Button Text' }),
       },
     }),
+    stats: singleton({
+      label: 'Stats',
+      path: 'content/stats',
+      schema: {
+        items: fields.array(
+          fields.object({
+            value: fields.text({ label: 'Value' }),
+            suffix: fields.text({ label: 'Suffix (e.g. +, %)' }),
+            label: fields.text({ label: 'Label' }),
+          }),
+          {
+            label: 'Stats',
+            itemLabel: (props) => props.fields.label.value || 'Stat',
+          },
+        ),
+      },
+    }),
     siteSettings: singleton({
       label: 'Site Settings',
       path: 'content/site-settings',
