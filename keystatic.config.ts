@@ -7,7 +7,7 @@ export default config({
     kind: 'cloud',
   },
   cloud: {
-    project: '<TEAM_NAME>/<PROJECT_NAME>',
+    project: 'rodi-digital/rodi-digital-poc',
   },
   singletons: {
     hero: singleton({
