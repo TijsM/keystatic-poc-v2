@@ -17,11 +17,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Professionele Website voor je Bedrijf | €100/mnd | Rodi Digital',
+  title: 'Professionele Website voor je Bedrijf | €100/mnd | Rodi Sites',
   description:
-    'Website laten maken? Rodi Digital biedt professionele websites als abonnement voor het MKB. Geen opstartkosten, alles inbegrepen voor €100 per maand. Inclusief ontwerp, hosting, onderhoud en SEO.',
+    'Website laten maken? Rodi Sites biedt professionele websites als abonnement voor het MKB. Geen opstartkosten, alles inbegrepen voor €100 per maand. Inclusief ontwerp, hosting, onderhoud en SEO.',
   openGraph: {
-    title: 'Professionele Website voor je Bedrijf | Rodi Digital',
+    title: 'Professionele Website voor je Bedrijf | Rodi Sites',
     description:
       'Een complete, moderne website voor €100 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
     locale: 'nl_NL',
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
-              name: 'Rodi Digital',
+              name: 'Rodi Sites',
               description:
                 'Professionele websites als abonnement voor het MKB',
               email: 'hello@rodi-digital.com',

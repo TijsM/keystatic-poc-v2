@@ -23,7 +23,7 @@ export function Problem({
   return (
     <section className="relative overflow-hidden bg-foreground py-32 lg:py-40">
       {/* Subtle gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(13,110,91,0.08),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(71,48,198,0.08),transparent_60%)]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid items-start gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">

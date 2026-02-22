@@ -44,9 +44,18 @@ export function Navbar({ brandName }: { brandName: string }) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
         <a
           href="#"
-          className="font-heading text-2xl text-foreground transition-opacity hover:opacity-70"
+          className="group relative inline-flex items-baseline gap-0 transition-opacity hover:opacity-70"
         >
-          {brandName}
+          <span className="font-heading text-2xl text-foreground">Rodi</span>
+          {/* Sparkle mark */}
+          <svg
+            className="relative -top-2 mx-[1px] h-3 w-3 text-primary"
+            viewBox="0 0 30 30"
+            fill="currentColor"
+          >
+            <path d="M15 0C15 0 15.52 6.48 18.16 9.11C20.8 11.75 27.27 12.27 27.27 12.27C27.27 12.27 20.8 12.79 18.16 15.43C15.52 18.07 15 24.55 15 24.55C15 24.55 14.48 18.07 11.84 15.43C9.2 12.79 2.73 12.27 2.73 12.27C2.73 12.27 9.2 11.75 11.84 9.11C14.48 6.48 15 0 15 0Z" />
+          </svg>
+          <span className="font-heading text-2xl italic text-primary">Sites</span>
         </a>
 
         <div className="hidden items-center gap-10 md:flex">

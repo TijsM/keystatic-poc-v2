@@ -23,7 +23,7 @@ export function Button({
     large: 'px-10 py-5 text-lg',
   };
   const variants = {
-    primary: 'bg-accent text-foreground hover:bg-accent-hover',
+    primary: 'bg-accent text-white hover:bg-accent-hover',
     secondary:
       'bg-transparent border-2 border-foreground/20 text-foreground hover:border-foreground/40',
     white: 'bg-white text-primary hover:bg-white/90',

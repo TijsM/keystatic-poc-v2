@@ -33,7 +33,7 @@ export default async function Homepage() {
   return (
     <>
       <ScrollProgress />
-      <Navbar brandName={siteSettings?.brandName ?? 'Rodi Digital'} />
+      <Navbar brandName={siteSettings?.brandName ?? 'Rodi Sites'} />
       <main>
         <Hero
           headline={hero?.headline ?? ''}
@@ -69,7 +69,7 @@ export default async function Homepage() {
         />
       </main>
       <Footer
-        brandName={siteSettings?.brandName ?? 'Rodi Digital'}
+        brandName={siteSettings?.brandName ?? 'Rodi Sites'}
         email={siteSettings?.email ?? 'hello@rodi-digital.com'}
         whatsapp={siteSettings?.whatsapp ?? ''}
         address={siteSettings?.address ?? ''}

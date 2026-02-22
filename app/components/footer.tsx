@@ -36,8 +36,16 @@ export function Footer({
         <FadeIn>
           <div className="grid gap-12 md:grid-cols-3 md:gap-8">
             <div>
-              <p className="font-heading text-3xl text-foreground">
-                {brandName}
+              <p className="text-3xl">
+                <span className="font-heading text-foreground">Rodi</span>
+                <svg
+                  className="relative -top-2 mx-[1px] inline-block h-3.5 w-3.5 text-primary"
+                  viewBox="0 0 30 30"
+                  fill="currentColor"
+                >
+                  <path d="M15 0C15 0 15.52 6.48 18.16 9.11C20.8 11.75 27.27 12.27 27.27 12.27C27.27 12.27 20.8 12.79 18.16 15.43C15.52 18.07 15 24.55 15 24.55C15 24.55 14.48 18.07 11.84 15.43C9.2 12.79 2.73 12.27 2.73 12.27C2.73 12.27 9.2 11.75 11.84 9.11C14.48 6.48 15 0 15 0Z" />
+                </svg>
+                <span className="font-heading italic text-primary">Sites</span>
               </p>
               <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
                 Professionele websites voor het MKB. Geen opstartkosten, alles
