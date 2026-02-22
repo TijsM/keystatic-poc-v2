@@ -65,7 +65,7 @@ export function Navbar({ brandName }: { brandName: string }) {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium tracking-wide text-muted uppercase transition-colors duration-300 hover:text-foreground"
+              className="text-[13px] font-medium tracking-wide text-foreground/70 uppercase transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
             </a>

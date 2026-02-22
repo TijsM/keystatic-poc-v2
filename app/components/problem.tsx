@@ -35,8 +35,8 @@ export function Problem({
               viewport={{ once: true }}
               transition={{ ease }}
             >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-primary uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-primary-bright uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary-bright" />
                 Het probleem
               </span>
             </motion.div>
@@ -74,7 +74,7 @@ export function Problem({
                 delay: 0.5,
                 ease: [0.76, 0, 0.24, 1],
               }}
-              className="mt-8 h-px w-24 origin-left bg-primary"
+              className="mt-8 h-px w-24 origin-left bg-primary-bright"
             />
           </div>
 
@@ -93,7 +93,7 @@ export function Problem({
                 }}
                 className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-sm"
               >
-                <p className="font-heading text-3xl text-primary md:text-4xl">
+                <p className="font-heading text-3xl text-primary-bright md:text-4xl">
                   {point.number}
                 </p>
                 <p className="mt-1 text-sm text-background/50">

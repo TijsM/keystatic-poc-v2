@@ -51,7 +51,7 @@ export function Process({ steps }: { steps: Step[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, ease }}
-              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto"
+              className="max-w-md text-lg leading-relaxed text-foreground/60 lg:ml-auto"
             >
               Geen ingewikkeld traject. Wij maken het simpel — van eerste
               gesprek tot een live website.

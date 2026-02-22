@@ -114,7 +114,7 @@ export function Footer({
                 <li>{address}</li>
                 <li>{postalCode} {city}</li>
                 {btwNumber && (
-                  <li className="pt-3 text-xs text-muted/60">
+                  <li className="pt-3 text-xs text-muted">
                     BTW: {btwNumber}
                   </li>
                 )}
@@ -131,7 +131,7 @@ export function Footer({
           className="mt-16 h-px origin-left bg-border/50"
         />
 
-        <div className="mt-8 text-center text-xs text-muted/60">
+        <div className="mt-8 text-center text-xs text-muted">
           &copy; {new Date().getFullYear()} {brandName}. Alle rechten
           voorbehouden.
         </div>

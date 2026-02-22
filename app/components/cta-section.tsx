@@ -22,7 +22,7 @@ export function CtaSection({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.8, ease }}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-primary"
+        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-primary text-white"
       >
         {/* Decorative elements */}
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">

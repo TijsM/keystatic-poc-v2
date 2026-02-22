@@ -56,7 +56,7 @@ export function Pricing({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, ease }}
-              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto lg:text-right"
+              className="max-w-md text-lg leading-relaxed text-foreground/60 lg:ml-auto lg:text-right"
             >
               Geen opstartkosten, geen verborgen kosten.
             </motion.p>
@@ -165,7 +165,7 @@ export function Pricing({
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, ease }}
-            className="mt-8 text-center text-sm text-muted"
+            className="mt-8 text-center text-sm text-foreground/60"
           >
             {guarantee}
           </motion.p>

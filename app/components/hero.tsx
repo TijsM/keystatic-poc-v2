@@ -211,7 +211,7 @@ export function Hero({
                   <div className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
                   <div className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
                 </div>
-                <div className="ml-3 flex-1 rounded-md bg-background px-3 py-1 text-[11px] text-muted/60">
+                <div className="ml-3 flex-1 rounded-md bg-background px-3 py-1 text-[11px] text-muted">
                   jouwbedrijf.nl
                 </div>
               </div>
@@ -302,13 +302,14 @@ export function Hero({
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
           className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+          aria-hidden="true"
         >
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="text-[10px] font-medium tracking-widest text-muted/50 uppercase">
+            <span className="text-[10px] font-medium tracking-widest text-muted uppercase">
               Scroll
             </span>
             <div className="h-8 w-[1px] bg-gradient-to-b from-muted/30 to-transparent" />

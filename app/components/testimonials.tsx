@@ -32,8 +32,8 @@ export function Testimonials({
               viewport={{ once: true }}
               transition={{ ease }}
             >
-              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-primary uppercase">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-primary-bright uppercase">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary-bright" />
                 Ervaringen
               </span>
             </motion.div>
@@ -64,7 +64,7 @@ export function Testimonials({
               className="flex flex-col justify-between rounded-2xl border border-white/[0.06] bg-white/[0.03] p-8 backdrop-blur-sm md:p-10"
             >
               <div>
-                <svg className="h-8 w-8 text-primary/40" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg className="h-8 w-8 text-primary-bright/40" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
                 </svg>
                 <p className="mt-6 text-lg leading-relaxed text-background/80">
@@ -72,7 +72,7 @@ export function Testimonials({
                 </p>
               </div>
               <div className="mt-8 flex items-center gap-4 border-t border-white/[0.06] pt-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/20 text-sm font-bold text-primary">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-bright/20 text-sm font-bold text-primary-bright">
                   {t.entry.name
                     .split(' ')
                     .map((n) => n[0])
