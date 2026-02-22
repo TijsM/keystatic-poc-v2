@@ -109,15 +109,28 @@ export function Pricing({
 
                 {/* Price */}
                 <div className="mt-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-lg text-muted">&euro;</span>
-                    <span className="font-heading text-5xl text-foreground md:text-6xl">
-                      {tier.price}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm text-muted">
-                    per maand
-                  </p>
+                  {tier.price === '-' ? (
+                    <>
+                      <span className="font-heading text-3xl text-foreground md:text-4xl">
+                        Op aanvraag
+                      </span>
+                      <p className="mt-1 text-sm text-muted">
+                        Prijs op basis van jouw wensen
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-lg text-muted">&euro;</span>
+                        <span className="font-heading text-5xl text-foreground md:text-6xl">
+                          {tier.price}
+                        </span>
+                      </div>
+                      <p className="mt-1 text-sm text-muted">
+                        per maand
+                      </p>
+                    </>
+                  )}
                 </div>
 
                 {/* Divider */}

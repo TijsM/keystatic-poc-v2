@@ -41,8 +41,8 @@ function AnimatedWord({
 }
 
 const trustItems = [
-  'Geen contract',
-  'Hosting inbegrepen',
+  'Geen opstartkosten',
+  'Alles inbegrepen',
   '30 dagen garantie',
 ];
 
@@ -68,7 +68,7 @@ export function Hero({
   const floatY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const words = headline.split(' ');
-  const highlightWords = ['€100'];
+  const highlightWords = ['€79'];
 
   return (
     <section
@@ -118,7 +118,7 @@ export function Hero({
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-light px-4 py-1.5 text-xs font-semibold tracking-wider text-primary uppercase">
               <span className="h-1.5 w-1.5 rounded-full bg-warm" />
-              Website as a Service
+              Website abonnement
             </span>
           </motion.div>
 

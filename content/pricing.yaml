@@ -1,43 +1,42 @@
-guarantee: 30 dagen niet-goed-geld-terug garantie. Geen vragen.
+guarantee: Niet tevreden? Binnen 30 dagen geld terug. Geen vragen.
 tiers:
-  - name: Starter
-    price: '59'
-    yearlyPrice: '49'
-    description: Een sterke one-pager om snel online te gaan.
+  - name: Basis
+    price: '79'
+    yearlyPrice: '69'
+    description: Een professionele one-pager om snel online zichtbaar te zijn.
     highlighted: false
     features:
+      - Professionele website op maat
       - One-pager (1 pagina)
-      - Op maat ontworpen
-      - Domein + hosting + SSL
-      - Basis SEO-optimalisatie
-      - 1 content update per maand
+      - Mobiel-vriendelijk design
+      - Vindbaar in Google (SEO)
+      - Hosting en onderhoud inbegrepen
+      - 1 aanpassing per maand
     ctaText: Start nu
-  - name: Groei
-    price: '99'
-    yearlyPrice: '79'
-    description: Meerdere pagina's, CMS en uitgebreide SEO.
-    highlighted: true
-    features:
-      - Tot 5 pagina's
-      - Op maat ontworpen
-      - Domein + hosting + SSL
-      - SEO + Google Search Console
-      - 2 content updates per maand
-      - Contactformulier
-      - Zelf content beheren (CMS)
-    ctaText: Meest gekozen
   - name: Professioneel
     price: '149'
-    yearlyPrice: '125'
-    description: Alles uit Groei, plus meertaligheid en integraties.
+    yearlyPrice: '129'
+    description: Meerdere pagina's, zelf aanpassen en uitgebreide SEO.
+    highlighted: true
+    features:
+      - Professionele website op maat
+      - Tot 7 pagina's
+      - Zelf teksten en foto's aanpassen
+      - Contactformulier + WhatsApp-knop
+      - Uitgebreide SEO met rapportage
+      - Hosting en onderhoud inbegrepen
+      - 3 aanpassingen per maand
+    ctaText: Meest gekozen
+  - name: Op Maat
+    price: '-'
+    yearlyPrice: '-'
+    description: Extra functionaliteit? Wij bouwen het voor je.
     highlighted: false
     features:
-      - Tot 10 pagina's
-      - Op maat ontworpen + branding
-      - Domein + hosting + SSL
-      - Volledige SEO + maandrapportage
-      - 4 content updates per maand
-      - Zelf content beheren (CMS)
-      - Meertalig (2 talen)
-      - Boekingssysteem / webshop-ready
+      - Alles uit Professioneel
+      - Onbeperkt pagina's
+      - Afsprakenplanner of boekingssysteem
+      - Koppelingen met externe tools
+      - Meertalige website
+      - Persoonlijke accountmanager
     ctaText: Neem contact op

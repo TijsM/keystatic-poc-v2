@@ -17,13 +17,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Professionele Website voor je Bedrijf | €100/mnd | Rodi Sites',
+  title: 'Professionele Website voor je Bedrijf | Rodi Sites',
   description:
-    'Website laten maken? Rodi Sites biedt professionele websites als abonnement voor het MKB. Geen opstartkosten, alles inbegrepen voor €100 per maand. Inclusief ontwerp, hosting, onderhoud en SEO.',
+    'Website laten maken? Rodi Sites bouwt professionele websites voor ondernemers — schilders, tandartsen, loodgieters en meer. Geen opstartkosten, alles inbegrepen vanaf €99 per maand.',
   openGraph: {
     title: 'Professionele Website voor je Bedrijf | Rodi Sites',
     description:
-      'Een complete, moderne website voor €100 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
+      'Een professionele website op maat, volledig onderhouden vanaf €99 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
     locale: 'nl_NL',
     type: 'website',
   },
@@ -63,26 +63,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     addressLocality: "'s-Hertogenbosch",
                     addressCountry: 'NL',
                   },
-                  priceRange: '€49 - €149 per maand',
+                  priceRange: '€99 - €149 per maand',
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
                     name: 'Website abonnementen',
                     itemListElement: [
                       {
                         '@type': 'Offer',
-                        name: 'Starter',
-                        price: '59',
-                        priceCurrency: 'EUR',
-                        description:
-                          'Een sterke one-pager om snel online te gaan.',
-                      },
-                      {
-                        '@type': 'Offer',
-                        name: 'Groei',
+                        name: 'Basis',
                         price: '99',
                         priceCurrency: 'EUR',
                         description:
-                          'Meerdere pagina\'s, CMS en uitgebreide SEO.',
+                          'Een professionele website om online zichtbaar te zijn.',
                       },
                       {
                         '@type': 'Offer',
@@ -90,7 +82,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                         price: '149',
                         priceCurrency: 'EUR',
                         description:
-                          'Alles uit Groei, plus meertaligheid en integraties.',
+                          'Voor ondernemers die online willen groeien.',
+                      },
+                      {
+                        '@type': 'Offer',
+                        name: 'Op Maat',
+                        description:
+                          'Extra functionaliteit op aanvraag.',
                       },
                     ],
                   },
@@ -100,18 +98,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   mainEntity: [
                     {
                       '@type': 'Question',
-                      name: 'Wat is Website as a Service (WaaS)?',
+                      name: 'Wat krijg ik precies voor het maandbedrag?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Bij Website as a Service betaal je geen duizenden euro\'s vooraf, maar een vast bedrag per maand. Voor dat bedrag krijg je een professioneel ontworpen website inclusief hosting, SSL-certificaat, onderhoud en technische ondersteuning.',
+                        text: 'Een volledig op maat gemaakte website, inclusief hosting, onderhoud, beveiligingsupdates en technische ondersteuning. Wij houden je website snel, veilig en up-to-date.',
                       },
                     },
                     {
                       '@type': 'Question',
-                      name: 'Zijn er opstartkosten voor mijn website?',
+                      name: 'Zijn er opstartkosten?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Nee. Ontwerp, ontwikkeling en lancering zitten volledig in je maandtarief. Je hebt geen grote investering vooraf nodig om online te gaan.',
+                        text: 'Nee. Ontwerp, bouw en lancering zitten volledig in je maandtarief. Je hoeft geen grote investering vooraf te doen.',
                       },
                     },
                     {
@@ -119,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       name: 'Hoe snel is mijn website klaar?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'De meeste websites zijn binnen 14 dagen live. Na een kort kennismakingsgesprek maken we een ontwerp, verwerken we je feedback en lanceren we de site.',
+                        text: 'De meeste websites zijn binnen twee weken live. Na een kort gesprek maken we een ontwerp, jij geeft feedback, en wij lanceren de site.',
                       },
                     },
                     {
@@ -127,7 +125,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       name: 'Zit ik vast aan een contract?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Nee. Na de eerste 12 maanden kun je maandelijks opzeggen, zonder boetes of kleine lettertjes. We bieden bovendien een 30 dagen niet-goed-geld-terug garantie.',
+                        text: 'Nee. Na de eerste 6 maanden kun je maandelijks opzeggen, zonder boetes of kleine lettertjes. We bieden een 30 dagen niet-goed-geld-terug garantie.',
+                      },
+                    },
+                    {
+                      '@type': 'Question',
+                      name: 'Kan ik later extra functies toevoegen?',
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: 'Ja. Denk aan een afsprakenplanner, koppeling met je boekhoudsoftware of een meertalige website. Neem contact op en we bespreken de mogelijkheden.',
                       },
                     },
                   ],

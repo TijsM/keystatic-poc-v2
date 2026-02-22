@@ -1,13 +1,13 @@
 items:
   - value: '50'
     suffix: '+'
-    label: Websites live
+    label: Tevreden ondernemers
   - value: '99.9'
     suffix: '%'
     label: Uptime gegarandeerd
-  - value: '1.8'
+  - value: '<2'
     suffix: 's'
-    label: Gem. laadtijd
+    label: Laadtijd
   - value: '14'
     suffix: ' dagen'
-    label: Van gesprek tot lancering
+    label: Gemiddeld live

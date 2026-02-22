@@ -76,7 +76,7 @@ export function Features({ features }: { features: Feature[] }) {
               className="max-w-md text-lg leading-relaxed text-foreground/60 lg:ml-auto"
             >
               Van ontwerp tot onderhoud — wij regelen alles zodat jij je kunt
-              focussen op waar je goed in bent.
+              focussen op je vak.
             </motion.p>
           </div>
         </div>
