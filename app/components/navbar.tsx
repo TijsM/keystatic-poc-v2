@@ -32,6 +32,7 @@ export function Navbar({ brandName }: { brandName: string }) {
 
   return (
     <motion.nav
+      aria-label="Hoofdnavigatie"
       initial={shouldReduceMotion ? false : { y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -49,9 +50,10 @@ export function Navbar({ brandName }: { brandName: string }) {
           <span className="font-heading text-2xl text-foreground">Rodi</span>
           {/* Sparkle mark */}
           <svg
-            className="relative -top-2 mx-[1px] h-3 w-3 text-primary"
+            className="relative -top-2 mx-px h-3 w-3 text-primary"
             viewBox="0 0 30 30"
             fill="currentColor"
+            aria-hidden="true"
           >
             <path d="M15 0C15 0 15.52 6.48 18.16 9.11C20.8 11.75 27.27 12.27 27.27 12.27C27.27 12.27 20.8 12.79 18.16 15.43C15.52 18.07 15 24.55 15 24.55C15 24.55 14.48 18.07 11.84 15.43C9.2 12.79 2.73 12.27 2.73 12.27C2.73 12.27 9.2 11.75 11.84 9.11C14.48 6.48 15 0 15 0Z" />
           </svg>
@@ -79,21 +81,22 @@ export function Navbar({ brandName }: { brandName: string }) {
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px] md:hidden"
-          aria-label="Menu"
+          aria-label={mobileOpen ? 'Menu sluiten' : 'Menu openen'}
+          aria-expanded={mobileOpen}
         >
           <motion.span
             animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block h-[2px] w-5 bg-foreground"
+            className="block h-0.5 w-5 bg-foreground"
             transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
           />
           <motion.span
             animate={mobileOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-            className="block h-[2px] w-5 bg-foreground"
+            className="block h-0.5 w-5 bg-foreground"
             transition={{ duration: 0.2 }}
           />
           <motion.span
             animate={mobileOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            className="block h-[2px] w-5 bg-foreground"
+            className="block h-0.5 w-5 bg-foreground"
             transition={{ duration: 0.3, ease: [0.76, 0, 0.24, 1] }}
           />
         </button>

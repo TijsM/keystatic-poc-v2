@@ -3,19 +3,19 @@ tiers:
   - name: Starter
     price: '59'
     yearlyPrice: '49'
-    description: Perfect voor ondernemers die snel online willen.
+    description: Een sterke one-pager om snel online te gaan.
     highlighted: false
     features:
       - One-pager (1 pagina)
       - Op maat ontworpen
       - Domein + hosting + SSL
-      - Basis SEO
+      - Basis SEO-optimalisatie
       - 1 content update per maand
     ctaText: Start nu
   - name: Groei
     price: '99'
     yearlyPrice: '79'
-    description: Voor bedrijven die willen groeien met hun website.
+    description: Meerdere pagina's, CMS en uitgebreide SEO.
     highlighted: true
     features:
       - Tot 5 pagina's
@@ -29,7 +29,7 @@ tiers:
   - name: Professioneel
     price: '149'
     yearlyPrice: '125'
-    description: De complete oplossing voor gevestigde bedrijven.
+    description: Alles uit Groei, plus meertaligheid en integraties.
     highlighted: false
     features:
       - Tot 10 pagina's

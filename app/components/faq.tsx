@@ -17,6 +17,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
   const [open, setOpen] = useState(false);
+  const answerId = `faq-answer-${item.slug}`;
 
   return (
     <motion.div
@@ -30,34 +31,42 @@ function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
       }}
       className="border-b border-border/70"
     >
-      <button
-        onClick={() => setOpen(!open)}
-        className="group flex w-full items-center justify-between py-6 text-left"
-      >
-        <span className="pr-6 text-lg font-medium text-foreground transition-colors group-hover:text-primary md:text-xl">
-          {item.entry.question}
-        </span>
-        <motion.div
-          animate={{ rotate: open ? 135 : 0 }}
-          transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border transition-colors group-hover:border-primary group-hover:text-primary"
+      <h3>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls={answerId}
+          className="group flex w-full items-center justify-between py-6 text-left"
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
+          <span className="pr-6 text-lg font-medium text-foreground transition-colors group-hover:text-primary md:text-xl">
+            {item.entry.question}
+          </span>
+          <motion.div
+            animate={{ rotate: open ? 135 : 0 }}
+            transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border transition-colors group-hover:border-primary group-hover:text-primary"
           >
-            <line x1="7" y1="0" x2="7" y2="14" />
-            <line x1="0" y1="7" x2="14" y2="7" />
-          </svg>
-        </motion.div>
-      </button>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 14 14"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              aria-hidden="true"
+            >
+              <line x1="7" y1="0" x2="7" y2="14" />
+              <line x1="0" y1="7" x2="14" y2="7" />
+            </svg>
+          </motion.div>
+        </button>
+      </h3>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={answerId}
+            role="region"
+            aria-labelledby={`faq-q-${item.slug}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

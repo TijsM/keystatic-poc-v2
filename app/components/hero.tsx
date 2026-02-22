@@ -77,7 +77,7 @@ export function Hero({
     >
       {/* Background decorative elements */}
       {!shouldReduceMotion && (
-        <>
+        <div aria-hidden="true">
           <motion.div
             style={{ y: floatY }}
             className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/[0.06] to-transparent blur-3xl"
@@ -86,7 +86,7 @@ export function Hero({
             style={{ y: floatY }}
             className="pointer-events-none absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent/[0.08] to-transparent blur-3xl"
           />
-        </>
+        </div>
       )}
 
       {/* Main content */}
@@ -157,6 +157,7 @@ export function Hero({
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
+                aria-hidden="true"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -181,6 +182,7 @@ export function Hero({
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2.5}
+                  aria-hidden="true"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
@@ -201,7 +203,7 @@ export function Hero({
             className="relative"
           >
             {/* Main card — stylized browser mockup */}
-            <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-2xl shadow-foreground/[0.06]">
+            <div aria-hidden="true" className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-2xl shadow-foreground/[0.06]">
               {/* Browser bar */}
               <div className="flex items-center gap-2 border-b border-border/40 bg-surface px-5 py-3.5">
                 <div className="flex gap-1.5">

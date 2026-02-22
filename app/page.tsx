@@ -34,7 +34,7 @@ export default async function Homepage() {
     <>
       <ScrollProgress />
       <Navbar brandName={siteSettings?.brandName ?? 'Rodi Sites'} />
-      <main>
+      <main id="main">
         <Hero
           headline={hero?.headline ?? ''}
           subheadline={hero?.subheadline ?? ''}

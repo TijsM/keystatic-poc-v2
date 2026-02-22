@@ -21,7 +21,7 @@ export function Testimonials({
   testimonials: Testimonial[];
 }) {
   return (
-    <section className="overflow-hidden bg-foreground py-32 lg:py-40">
+    <section aria-label="Klantervaringen" className="overflow-hidden bg-foreground py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header — consistent with other sections */}
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
@@ -64,7 +64,7 @@ export function Testimonials({
               className="flex flex-col justify-between rounded-2xl border border-white/[0.06] bg-white/[0.03] p-8 backdrop-blur-sm md:p-10"
             >
               <div>
-                <svg className="h-8 w-8 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="h-8 w-8 text-primary/40" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
                 </svg>
                 <p className="mt-6 text-lg leading-relaxed text-background/80">

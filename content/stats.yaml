@@ -1,13 +1,13 @@
 items:
   - value: '50'
     suffix: '+'
-    label: Websites gebouwd
+    label: Websites live
   - value: '99.9'
     suffix: '%'
-    label: Uptime garantie
-  - value: '2'
+    label: Uptime gegarandeerd
+  - value: '1.8'
     suffix: 's'
-    label: Gemiddelde laadtijd
-  - value: '24'
-    suffix: '/7'
-    label: Support beschikbaar
+    label: Gem. laadtijd
+  - value: '14'
+    suffix: ' dagen'
+    label: Van gesprek tot lancering

@@ -25,7 +25,7 @@ export function CtaSection({
         className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-primary"
       >
         {/* Decorative elements */}
-        <div className="pointer-events-none absolute inset-0">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="absolute -right-24 -top-24 h-[400px] w-[400px] rounded-full bg-white/[0.04]" />
           <div className="absolute -bottom-32 -left-32 h-[300px] w-[300px] rounded-full bg-white/[0.03]" />
         </div>
