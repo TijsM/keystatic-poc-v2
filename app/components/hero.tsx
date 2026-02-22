@@ -64,8 +64,8 @@ export function Hero({
 
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 0.4], [0, 60]);
-  const proofCardY = useTransform(scrollYProgress, [0, 0.5], [0, -40]);
-  const floatY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const mockupY = useTransform(scrollYProgress, [0, 0.5], [0, -30]);
+  const floatY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const words = headline.split(' ');
   const highlightWords = ['€100'];
@@ -73,18 +73,28 @@ export function Hero({
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-background"
+      className="gradient-mesh-light noise-overlay relative min-h-screen overflow-hidden"
     >
-      {/* Background decorative elements */}
+      {/* Subtle dot grid */}
+      <div className="dot-grid pointer-events-none absolute inset-0 z-[2]" aria-hidden="true" />
+
+      {/* Decorative rings */}
       {!shouldReduceMotion && (
         <div aria-hidden="true">
           <motion.div
             style={{ y: floatY }}
-            className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-gradient-to-br from-primary/[0.06] to-transparent blur-3xl"
+            className="decorative-ring pointer-events-none absolute -right-32 top-24 h-[500px] w-[500px]"
           />
           <motion.div
             style={{ y: floatY }}
-            className="pointer-events-none absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-gradient-to-tr from-accent/[0.08] to-transparent blur-3xl"
+            className="decorative-ring-warm pointer-events-none absolute -left-20 bottom-20 h-[350px] w-[350px]"
+          />
+          {/* Small floating accent dot */}
+          <motion.div
+            className="animate-float-slow pointer-events-none absolute right-1/4 top-1/3 h-2 w-2 rounded-full bg-warm/40"
+          />
+          <motion.div
+            className="animate-float pointer-events-none absolute left-1/3 top-2/3 h-1.5 w-1.5 rounded-full bg-primary/30"
           />
         </div>
       )}
@@ -106,24 +116,24 @@ export function Hero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1, ease }}
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary-light px-4 py-1.5 text-xs font-semibold tracking-wider text-primary uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              Website als Service
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary-light px-4 py-1.5 text-xs font-semibold tracking-wider text-primary uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-warm" />
+              Website as a Service
             </span>
           </motion.div>
 
           {/* Headline */}
-          <h1 className="mt-8 font-heading text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1] tracking-tight text-foreground">
+          <h1 className="mt-8 font-heading text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.05] tracking-tight text-foreground">
             {shouldReduceMotion
               ? headline
               : words.map((word, i) => (
-                  <AnimatedWord
-                    key={i}
-                    word={word}
-                    index={i}
-                    highlight={highlightWords.some((hw) => word.includes(hw))}
-                  />
-                ))}
+                <AnimatedWord
+                  key={i}
+                  word={word}
+                  index={i}
+                  highlight={highlightWords.some((hw) => word.includes(hw))}
+                />
+              ))}
           </h1>
 
           {/* Subtitle */}
@@ -177,7 +187,7 @@ export function Hero({
                 className="flex items-center gap-2 text-[13px] text-muted"
               >
                 <svg
-                  className="h-4 w-4 text-primary"
+                  className="h-4 w-4 text-warm"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -192,18 +202,26 @@ export function Hero({
           </motion.div>
         </div>
 
-        {/* Right: proof card + decorative */}
-        <div className="relative hidden lg:block">
-          {/* Floating proof card */}
+        {/* Right: elevated browser mockup */}
+        <div className="relative hidden lg:block" style={{ perspective: '1200px' }}>
           <motion.div
-            style={shouldReduceMotion ? undefined : { y: proofCardY }}
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.6, ease }}
+            style={shouldReduceMotion ? undefined : { y: mockupY }}
+            initial={{ opacity: 0, y: 60, rotateY: -6, rotateX: 3 }}
+            animate={{ opacity: 1, y: 0, rotateY: -3, rotateX: 1.5 }}
+            transition={{ duration: 1.2, delay: 0.5, ease }}
             className="relative"
           >
-            {/* Main card — stylized browser mockup */}
-            <div aria-hidden="true" className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-2xl shadow-foreground/[0.06]">
+            {/* Soft shadow behind mockup */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-[40px]"
+            />
+
+            {/* Browser mockup */}
+            <div
+              aria-hidden="true"
+              className="card-elevated relative overflow-hidden rounded-2xl"
+            >
               {/* Browser bar */}
               <div className="flex items-center gap-2 border-b border-border/40 bg-surface px-5 py-3.5">
                 <div className="flex gap-1.5">
@@ -216,7 +234,7 @@ export function Hero({
                 </div>
               </div>
 
-              {/* Fake website content */}
+              {/* Website content */}
               <div className="p-8">
                 {/* Nav skeleton */}
                 <div className="flex items-center justify-between">
@@ -236,12 +254,12 @@ export function Hero({
                 </div>
                 <div className="mt-6 h-9 w-28 rounded-full bg-primary/80" />
 
-                {/* Cards skeleton */}
+                {/* Bento cards skeleton */}
                 <div className="mt-10 grid grid-cols-3 gap-3">
                   {[...Array(3)].map((_, i) => (
                     <div
                       key={i}
-                      className="space-y-2 rounded-lg bg-surface p-4"
+                      className="space-y-2 rounded-lg border border-border/40 bg-surface p-4"
                     >
                       <div className="h-8 w-8 rounded-md bg-primary/15" />
                       <div className="h-2.5 w-full rounded bg-foreground/[0.06]" />
@@ -252,12 +270,12 @@ export function Hero({
               </div>
             </div>
 
-            {/* Floating stat card — overlapping bottom-left */}
+            {/* Floating stat — bottom-left */}
             <motion.div
               initial={{ opacity: 0, x: -20, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2, ease }}
-              className="absolute -bottom-6 -left-6 rounded-xl border border-border/50 bg-card px-5 py-4 shadow-xl"
+              className="card-elevated animate-float-delayed absolute -bottom-6 -left-6 rounded-xl px-5 py-4"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light">
@@ -272,16 +290,16 @@ export function Hero({
               </div>
             </motion.div>
 
-            {/* Floating speed card — top-right */}
+            {/* Floating speed — top-right */}
             <motion.div
               initial={{ opacity: 0, x: 20, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4, ease }}
-              className="absolute -right-4 -top-4 rounded-xl border border-border/50 bg-card px-5 py-4 shadow-xl"
+              className="card-elevated animate-float absolute -right-4 -top-4 rounded-xl px-5 py-4"
             >
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/15">
-                  <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-warm-light">
+                  <svg className="h-5 w-5 text-warm" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -294,6 +312,9 @@ export function Hero({
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Animated gradient line at bottom */}
+      <div className="animated-gradient-line absolute bottom-0 left-0 right-0 z-10" aria-hidden="true" />
 
       {/* Scroll indicator */}
       {!shouldReduceMotion && (

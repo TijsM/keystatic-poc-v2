@@ -29,17 +29,22 @@ function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
         delay: index * 0.06,
         ease,
       }}
-      className="border-b border-border/70"
+      className={`border-b border-border/70 transition-colors duration-300 ${open ? 'bg-primary-light/50' : ''}`}
     >
       <h3>
         <button
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-controls={answerId}
-          className="group flex w-full items-center justify-between py-6 text-left"
+          className="group flex w-full items-center justify-between px-6 py-6 text-left"
         >
-          <span className="pr-6 text-lg font-medium text-foreground transition-colors group-hover:text-primary md:text-xl">
-            {item.entry.question}
+          <span className="flex items-center gap-4 pr-6">
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-light text-xs font-semibold text-primary transition-colors group-hover:bg-primary group-hover:text-white">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span className="text-lg font-medium text-foreground transition-colors group-hover:text-primary md:text-xl">
+              {item.entry.question}
+            </span>
           </span>
           <motion.div
             animate={{ rotate: open ? 135 : 0 }}
@@ -73,7 +78,7 @@ function FaqAccordionItem({ item, index }: { item: FaqItem; index: number }) {
             transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
             className="overflow-hidden"
           >
-            <p className="max-w-2xl pb-6 leading-relaxed text-muted">
+            <p className="max-w-2xl pb-6 pl-18 pr-6 leading-relaxed text-muted" style={{ paddingLeft: 'calc(2rem + 2.5rem)' }}>
               {item.entry.answer}
             </p>
           </motion.div>
@@ -89,9 +94,12 @@ export function Faq({ items }: { items: FaqItem[] }) {
   );
 
   return (
-    <section id="faq" className="bg-background py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header — consistent style */}
+    <section id="faq" className="relative overflow-hidden bg-primary-light py-32 lg:py-40">
+      {/* Decorative elements */}
+      <div className="decorative-ring-warm pointer-events-none absolute -right-32 bottom-20 h-[350px] w-[350px]" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header */}
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <div>
             <motion.div
@@ -120,15 +128,15 @@ export function Faq({ items }: { items: FaqItem[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, ease }}
-              className="max-w-md text-lg leading-relaxed text-muted lg:ml-auto"
+              className="max-w-md text-lg leading-relaxed text-foreground/60 lg:ml-auto"
             >
-              Alles wat je wilt weten over Website als Service
+              Alles wat je wilt weten over Website as a Service
             </motion.p>
           </div>
         </div>
 
         {/* Accordion */}
-        <div className="mx-auto mt-16 max-w-3xl">
+        <div className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
           {sorted.map((item, i) => (
             <FaqAccordionItem key={item.slug} item={item} index={i} />
           ))}

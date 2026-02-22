@@ -100,10 +100,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   mainEntity: [
                     {
                       '@type': 'Question',
-                      name: 'Wat is Website als Service (WaaS)?',
+                      name: 'Wat is Website as a Service (WaaS)?',
                       acceptedAnswer: {
                         '@type': 'Answer',
-                        text: 'Bij Website als Service betaal je geen duizenden euro\'s vooraf, maar een vast bedrag per maand. Voor dat bedrag krijg je een professioneel ontworpen website inclusief hosting, SSL-certificaat, onderhoud en technische ondersteuning.',
+                        text: 'Bij Website as a Service betaal je geen duizenden euro\'s vooraf, maar een vast bedrag per maand. Voor dat bedrag krijg je een professioneel ontworpen website inclusief hosting, SSL-certificaat, onderhoud en technische ondersteuning.',
                       },
                     },
                     {

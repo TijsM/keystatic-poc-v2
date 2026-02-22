@@ -25,8 +25,17 @@ export function Pricing({
 }) {
 
   return (
-    <section id="prijzen" className="bg-primary-light py-32 lg:py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="prijzen" className="relative overflow-hidden bg-background py-32 lg:py-40">
+      {/* Subtle mesh gradient */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(71, 48, 198, 0.03), transparent)',
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           <div>
@@ -76,15 +85,15 @@ export function Pricing({
                 delay: i * 0.12,
                 ease,
               }}
-              className={`relative flex flex-col overflow-hidden rounded-2xl border bg-card ${
+              className={`relative flex flex-col overflow-hidden rounded-2xl ${
                 tier.highlighted
-                  ? 'border-primary shadow-lg shadow-primary/10'
-                  : 'border-border/60'
-              }`}
+                  ? 'gradient-border shadow-xl shadow-primary/10'
+                  : 'border border-border/60'
+              } bg-card`}
             >
               {/* Highlighted badge */}
               {tier.highlighted && (
-                <div className="bg-primary px-4 py-2 text-center text-xs font-semibold tracking-wider text-white uppercase">
+                <div className="bg-gradient-to-r from-primary to-primary-dark px-4 py-2.5 text-center text-xs font-semibold tracking-wider text-white uppercase">
                   Meest gekozen
                 </div>
               )}
@@ -112,7 +121,7 @@ export function Pricing({
                 </div>
 
                 {/* Divider */}
-                <div className="my-8 h-px bg-border/60" />
+                <div className={`my-8 h-px ${tier.highlighted ? 'bg-gradient-to-r from-primary/20 via-primary/10 to-transparent' : 'bg-border/60'}`} />
 
                 {/* Features */}
                 <ul className="flex-1 space-y-3">
@@ -122,7 +131,7 @@ export function Pricing({
                       className="flex items-start gap-3"
                     >
                       <svg
-                        className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                        className={`mt-0.5 h-4 w-4 shrink-0 ${tier.highlighted ? 'text-primary' : 'text-warm'}`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -160,15 +169,18 @@ export function Pricing({
 
         {/* Guarantee */}
         {guarantee && (
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5, ease }}
-            className="mt-8 text-center text-sm text-foreground/60"
+            className="mt-10 flex items-center justify-center gap-2 text-center text-sm text-foreground/60"
           >
+            <svg className="h-4 w-4 text-warm" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
             {guarantee}
-          </motion.p>
+          </motion.div>
         )}
       </div>
     </section>

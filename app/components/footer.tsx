@@ -31,7 +31,7 @@ export function Footer({
   linkedin: string;
 }) {
   return (
-    <footer className="border-t border-border/50 bg-background py-24 lg:py-32">
+    <footer className="relative overflow-hidden border-t border-border/50 bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
           <div className="grid gap-12 md:grid-cols-3 md:gap-8">
@@ -123,15 +123,24 @@ export function Footer({
           </div>
         </FadeIn>
 
+        {/* Animated gradient divider */}
+        <div className="animated-gradient-line mt-16" aria-hidden="true" />
+
+        {/* Large wordmark */}
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="mt-16 h-px origin-left bg-border/50"
-        />
+          className="mt-12 select-none text-center"
+          aria-hidden="true"
+        >
+          <span className="font-heading text-[clamp(4rem,12vw,10rem)] leading-none text-foreground/[0.03]">
+            Rodi Sites
+          </span>
+        </motion.div>
 
-        <div className="mt-8 text-center text-xs text-muted">
+        <div className="mt-6 text-center text-xs text-muted">
           &copy; {new Date().getFullYear()} {brandName}. Alle rechten
           voorbehouden.
         </div>
