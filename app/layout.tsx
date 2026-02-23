@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Rodi Sites',
   },
   description:
-    'Website laten maken? Rodi Sites bouwt professionele websites voor ondernemers — schilders, tandartsen, loodgieters en meer. Geen opstartkosten, alles inbegrepen vanaf €79 per maand.',
+    'Website laten maken? Rodi Sites bouwt professionele websites voor ondernemers: schilders, tandartsen, loodgieters en meer. Geen opstartkosten, alles inbegrepen vanaf €79 per maand.',
   alternates: {
     canonical: '/',
   },
