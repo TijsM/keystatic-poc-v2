@@ -85,11 +85,10 @@ export function Pricing({
                 delay: i * 0.12,
                 ease,
               }}
-              className={`relative flex flex-col overflow-hidden rounded-2xl ${
-                tier.highlighted
+              className={`relative flex flex-col overflow-hidden rounded-2xl ${tier.highlighted
                   ? 'gradient-border shadow-xl shadow-primary/10'
                   : 'border border-border/60'
-              } bg-card`}
+                } bg-card`}
             >
               {/* Highlighted badge */}
               {tier.highlighted && (

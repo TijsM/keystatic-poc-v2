@@ -20,13 +20,9 @@ cards:
     pain: Zelf bouwen, avonden en weekends
     benefit: Wij regelen alles voor je
   - competitor: Freelancers
-    label: Wijzigingen inbegrepen
-    pain: Hopen dat ze reageren
-    benefit: Aanpassingen zitten in je abonnement
-  - competitor: Bureaus
-    label: Geen uurtarieven
-    pain: "\u20AC75 - \u20AC150 per uur voor elke wijziging"
-    benefit: Kleine aanpassingen gewoon inbegrepen
+    label: Zelf content aanpassen
+    pain: Voor elke tekstwijziging afhankelijk van je freelancer
+    benefit: Pas zelf teksten en foto's aan via een simpel beheerpaneel
   - competitor: Wix & Squarespace
     label: Razendsnel
     pain: Trage laadtijden, slechte scores
