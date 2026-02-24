@@ -68,12 +68,38 @@ export default config({
         items: fields.array(
           fields.object({
             value: fields.text({ label: 'Value' }),
+            prefix: fields.text({ label: 'Prefix (e.g. <, €)' }),
             suffix: fields.text({ label: 'Suffix (e.g. +, %)' }),
             label: fields.text({ label: 'Label' }),
           }),
           {
             label: 'Stats',
             itemLabel: (props) => props.fields.label.value || 'Stat',
+          },
+        ),
+      },
+    }),
+    comparison: singleton({
+      label: 'Vergelijking',
+      path: 'content/comparison',
+      schema: {
+        headline: fields.text({ label: 'Headline' }),
+        subtitle: fields.text({ label: 'Subtitle', multiline: true }),
+        cards: fields.array(
+          fields.object({
+            competitor: fields.text({
+              label: 'Concurrent (bijv. "Freelancers")',
+            }),
+            label: fields.text({ label: 'Voordeel titel' }),
+            pain: fields.text({ label: 'Concurrent nadeel' }),
+            benefit: fields.text({ label: 'Rodi Sites voordeel' }),
+          }),
+          {
+            label: 'Voordelen',
+            itemLabel: (props) =>
+              props.fields.competitor.value
+                ? `${props.fields.competitor.value}: ${props.fields.label.value}`
+                : 'Voordeel',
           },
         ),
       },

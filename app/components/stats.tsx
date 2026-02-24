@@ -7,6 +7,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 
 type StatItem = {
   value: string;
+  prefix?: string;
   suffix: string;
   label: string;
 };
@@ -37,6 +38,7 @@ export function Stats({ items }: { items: readonly StatItem[] }) {
               <div className="font-heading text-5xl text-foreground md:text-6xl">
                 <NumberCounter
                   value={parseFloat(item.value)}
+                  prefix={item.prefix ?? ''}
                   suffix={item.suffix}
                   decimals={item.value.includes('.') ? 1 : 0}
                 />

@@ -1,13 +1,14 @@
 items:
-  - value: '50'
-    suffix: '+'
+  - value: "50"
+    suffix: "+"
     label: Tevreden ondernemers
-  - value: '99.9'
-    suffix: '%'
+  - value: "99.9"
+    suffix: "%"
     label: Uptime gegarandeerd
-  - value: '<2'
-    suffix: 's'
+  - value: "1.8"
+    prefix: "<"
+    suffix: "s"
     label: Laadtijd
-  - value: '14'
-    suffix: ' dagen'
+  - value: "14"
+    suffix: " dagen"
     label: Gemiddeld live

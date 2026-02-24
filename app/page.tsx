@@ -6,14 +6,14 @@ import { Problem } from './components/problem';
 import { Process } from './components/process';
 import { Stats } from './components/stats';
 import { Features } from './components/features';
-import { Testimonials } from './components/testimonials';
+import { Comparison } from './components/comparison';
 import { Pricing } from './components/pricing';
 import { Faq } from './components/faq';
 import { CtaSection } from './components/cta-section';
 import { Footer } from './components/footer';
 
 export default async function Homepage() {
-  const [hero, problem, pricing, finalCta, siteSettings, stats] =
+  const [hero, problem, pricing, finalCta, siteSettings, stats, comparison] =
     await Promise.all([
       reader.singletons.hero.read(),
       reader.singletons.problem.read(),
@@ -21,12 +21,12 @@ export default async function Homepage() {
       reader.singletons.finalCta.read(),
       reader.singletons.siteSettings.read(),
       reader.singletons.stats.read(),
+      reader.singletons.comparison.read(),
     ]);
 
-  const [features, processSteps, testimonials, faqs] = await Promise.all([
+  const [features, processSteps, faqs] = await Promise.all([
     reader.collections.features.all(),
     reader.collections.processSteps.all(),
-    reader.collections.testimonials.all(),
     reader.collections.faqs.all(),
   ]);
 
@@ -51,12 +51,17 @@ export default async function Homepage() {
             stats?.items ?? [
               { value: '50', suffix: '+', label: 'Websites' },
               { value: '99.9', suffix: '%', label: 'Uptime' },
-              { value: '2', suffix: 's', label: 'Laadtijd' },
+              { value: '2', prefix: '<', suffix: 's', label: 'Laadtijd' },
               { value: '24', suffix: '/7', label: 'Support' },
             ]
           }
         />
-        <Testimonials testimonials={testimonials} />
+        <Comparison
+          headline={comparison?.headline ?? 'Waarom Rodi Sites?'}
+          subtitle={comparison?.subtitle ?? ''}
+          cards={comparison?.cards ?? []}
+        />
+
         <Pricing
           tiers={pricing?.tiers ?? []}
           guarantee={pricing?.guarantee ?? ''}
