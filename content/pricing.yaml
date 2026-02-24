@@ -1,8 +1,7 @@
 guarantee: Niet tevreden? Binnen 30 dagen geld terug. Geen vragen.
 tiers:
   - name: Basis
-    price: "79"
-    yearlyPrice: "69"
+    price: "75"
     description: Een professionele one-pager om snel online zichtbaar te zijn.
     highlighted: false
     features:
@@ -14,8 +13,7 @@ tiers:
       - Zelf teksten en foto's aanpassen
     ctaText: Start nu
   - name: Professioneel
-    price: "149"
-    yearlyPrice: "129"
+    price: "129"
     description: Meerdere pagina's, zelf aanpassen en uitgebreide SEO.
     highlighted: true
     features:
@@ -28,7 +26,6 @@ tiers:
     ctaText: Meest gekozen
   - name: Op Maat
     price: "-"
-    yearlyPrice: "-"
     description: Extra functionaliteit? Wij bouwen het voor je.
     highlighted: false
     features:
