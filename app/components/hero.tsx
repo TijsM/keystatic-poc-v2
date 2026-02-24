@@ -68,7 +68,7 @@ export function Hero({
   const floatY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const words = headline.split(' ');
-  const highlightWords = ['€79'];
+  const highlightWords = ['€75'];
 
   return (
     <section

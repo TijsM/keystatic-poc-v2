@@ -24,13 +24,17 @@ cards:
     pain: Voor elke tekstwijziging afhankelijk van je freelancer
     benefit: Pas zelf teksten en foto's aan via een simpel beheerpaneel
   - competitor: Wix & Squarespace
-    label: Razendsnel
-    pain: Trage laadtijden, slechte scores
-    benefit: Altijd geoptimaliseerd en snel
-  - competitor: Freelancers
-    label: Gegarandeerde kwaliteit
-    pain: Wisselend resultaat, geen garanties
-    benefit: Professioneel resultaat, altijd
+    label: Gevonden worden op Google
+    pain: Beperkte SEO-mogelijkheden, moeilijk vindbaar
+    benefit: SEO-optimalisatie inbegrepen en doorlopend onderhouden
+  - competitor: Wix & Squarespace
+    label: Verborgen kosten
+    pain: Apps, plugins en upgrades tikken snel aan
+    benefit: Vast maandtarief, alles inbegrepen
+  - competitor: Wix & Squarespace
+    label: Geen technische beperkingen
+    pain: Vastzitten aan wat het platform kan
+    benefit: Op maat gebouwd, zonder limieten van een platform
   - competitor: Bureaus
     label: Snel online
     pain: 2 - 5 maanden wachten
