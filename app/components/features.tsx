@@ -15,6 +15,22 @@ type Feature = {
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+/* Images for the first few feature cards */
+const featureImages: Record<number, { src: string; alt: string }> = {
+  0: {
+    src: '/images/feature-seo-ranking.png',
+    alt: 'Google zoekresultaten met top ranking',
+  },
+  1: {
+    src: '/images/feature-responsive-devices.png',
+    alt: 'Responsieve website op telefoon, tablet en laptop',
+  },
+  2: {
+    src: '/images/feature-speed.png',
+    alt: 'Razendsnelle laadtijd visualisatie',
+  },
+};
+
 /* Icon set for features */
 const featureIcons: Record<string, React.ReactNode> = {
   design: (
@@ -123,6 +139,18 @@ export function Features({ features }: { features: Feature[] }) {
                   <p className="mt-3 max-w-md leading-relaxed text-muted">
                     {feature.entry.description}
                   </p>
+
+                  {/* Feature illustration for larger cards */}
+                  {featureImages[i] && (
+                    <div className="mt-6">
+                      <img
+                        src={featureImages[i].src}
+                        alt={featureImages[i].alt}
+                        className="w-full rounded-xl object-cover"
+                        style={{ aspectRatio: i === 0 ? '21/9' : '16/10' }}
+                      />
+                    </div>
+                  )}
 
                   {/* Bottom accent */}
                   <div className="absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-gradient-to-r from-primary to-primary/30 transition-transform duration-500 group-hover:scale-x-100" />

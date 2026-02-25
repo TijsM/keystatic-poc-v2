@@ -51,50 +51,71 @@ export function CtaSection({
         </div>
 
         <div className="relative z-10 px-8 py-20 md:px-16 md:py-28">
-          <div className="mx-auto max-w-2xl text-center">
-            <TextReveal
-              as="h2"
-              className="font-heading text-4xl text-white md:text-5xl lg:text-6xl"
-            >
-              {headline}
-            </TextReveal>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, ease }}
-              className="mt-6 text-lg text-white/70"
-            >
-              {subtext}
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, ease }}
-              className="mt-10"
-            >
-              <Button
-                href="mailto:hello@rodi-digital.com"
-                variant="white"
-                size="large"
+          <div className="mx-auto max-w-4xl">
+            {/* Two-column layout: visual + CTA */}
+            <div className="grid items-center gap-12 lg:grid-cols-[0.5fr_1fr]">
+              {/* Left: visual */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease }}
               >
-                {buttonText}
-              </Button>
-            </motion.div>
+                <img
+                  src="/images/cta-happy-team.png"
+                  alt="Blije ondernemer met een succesvolle website"
+                  className="w-full rounded-2xl object-cover"
+                  style={{ aspectRatio: '3/4' }}
+                />
+              </motion.div>
 
-            {/* Trust line */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7, ease }}
-              className="mt-6 text-sm text-white/40"
-            >
-              Reactie binnen 24 uur
-            </motion.p>
+              {/* Right: CTA content */}
+              <div className="text-center lg:text-left">
+                <TextReveal
+                  as="h2"
+                  className="font-heading text-4xl text-white md:text-5xl lg:text-6xl"
+                >
+                  {headline}
+                </TextReveal>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, ease }}
+                  className="mt-6 text-lg text-white/70"
+                >
+                  {subtext}
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, ease }}
+                  className="mt-10"
+                >
+                  <Button
+                    href="mailto:hello@rodi-digital.com"
+                    variant="white"
+                    size="large"
+                  >
+                    {buttonText}
+                  </Button>
+                </motion.div>
+
+                {/* Trust line */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7, ease }}
+                  className="mt-6 text-sm text-white/40"
+                >
+                  Reactie binnen 24 uur
+                </motion.p>
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>

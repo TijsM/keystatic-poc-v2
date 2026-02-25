@@ -13,6 +13,22 @@ type Testimonial = {
   };
 };
 
+/** Portrait image prompts for each testimonial person */
+const testimonialImages: Record<string, { src: string; alt: string }> = {
+  'mohamed-el-amrani': {
+    src: '/images/testimonial-mohamed.png',
+    alt: 'Mohamed El Amrani - tandarts',
+  },
+  'lisa-bakker': {
+    src: '/images/testimonial-lisa.png',
+    alt: 'Lisa Bakker - schildersbedrijf',
+  },
+  'jan-de-vries': {
+    src: '/images/testimonial-jan.png',
+    alt: 'Jan de Vries - hovenier',
+  },
+};
+
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export function Testimonials({
@@ -87,7 +103,19 @@ export function Testimonials({
                 </p>
               </div>
 
-              <div className="mt-8 flex items-center gap-4 border-t border-white/[0.06] pt-6">
+              {/* Portrait image */}
+              {testimonialImages[t.slug] && (
+                <div className="mt-6">
+                  <img
+                    src={testimonialImages[t.slug].src}
+                    alt={testimonialImages[t.slug].alt}
+                    className="w-full rounded-xl object-cover"
+                    style={{ aspectRatio: '3/2' }}
+                  />
+                </div>
+              )}
+
+              <div className="mt-6 flex items-center gap-4 border-t border-white/[0.06] pt-6">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-bright/15 text-sm font-bold text-primary-bright ring-2 ring-primary-bright/10">
                   {t.entry.name
                     .split(' ')

@@ -202,7 +202,7 @@ export function Hero({
           </motion.div>
         </div>
 
-        {/* Right: elevated browser mockup */}
+        {/* Right: hero visual — business owner lifestyle image */}
         <div className="relative hidden lg:block" style={{ perspective: '1200px' }}>
           <motion.div
             style={shouldReduceMotion ? undefined : { y: mockupY }}
@@ -211,71 +211,26 @@ export function Hero({
             transition={{ duration: 1.2, delay: 0.5, ease }}
             className="relative"
           >
-            {/* Soft shadow behind mockup */}
+            {/* Soft shadow behind image */}
             <div
               aria-hidden="true"
               className="absolute -inset-4 rounded-3xl bg-primary/[0.04] blur-[40px]"
             />
 
-            {/* Browser mockup */}
-            <div
-              aria-hidden="true"
-              className="card-elevated relative overflow-hidden rounded-2xl"
-            >
-              {/* Browser bar */}
-              <div className="flex items-center gap-2 border-b border-border/40 bg-surface px-5 py-3.5">
-                <div className="flex gap-1.5">
-                  <div className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                </div>
-                <div className="ml-3 flex-1 rounded-md bg-background px-3 py-1 text-[11px] text-muted">
-                  jouwbedrijf.nl
-                </div>
-              </div>
-
-              {/* Website content */}
-              <div className="p-8">
-                {/* Nav skeleton */}
-                <div className="flex items-center justify-between">
-                  <div className="h-3 w-24 rounded bg-foreground/10" />
-                  <div className="flex gap-3">
-                    <div className="h-2.5 w-12 rounded bg-foreground/[0.06]" />
-                    <div className="h-2.5 w-12 rounded bg-foreground/[0.06]" />
-                    <div className="h-2.5 w-12 rounded bg-foreground/[0.06]" />
-                  </div>
-                </div>
-
-                {/* Hero skeleton */}
-                <div className="mt-10 space-y-3">
-                  <div className="h-5 w-4/5 rounded bg-foreground/10" />
-                  <div className="h-5 w-3/5 rounded bg-foreground/10" />
-                  <div className="mt-4 h-3 w-2/3 rounded bg-foreground/[0.06]" />
-                </div>
-                <div className="mt-6 h-9 w-28 rounded-full bg-primary/80" />
-
-                {/* Bento cards skeleton */}
-                <div className="mt-10 grid grid-cols-3 gap-3">
-                  {[...Array(3)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="space-y-2 rounded-lg border border-border/40 bg-surface p-4"
-                    >
-                      <div className="h-8 w-8 rounded-md bg-primary/15" />
-                      <div className="h-2.5 w-full rounded bg-foreground/[0.06]" />
-                      <div className="h-2 w-3/4 rounded bg-foreground/[0.04]" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            {/* Main hero image — small business owner */}
+            <img
+              src="/images/hero-business-owner.png"
+              alt="Trotse ondernemer bekijkt zijn nieuwe website op een laptop"
+              className="w-full rounded-2xl object-cover"
+              style={{ aspectRatio: '4/5' }}
+            />
 
             {/* Floating stat — bottom-left */}
             <motion.div
               initial={{ opacity: 0, x: -20, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2, ease }}
-              className="card-elevated animate-float-delayed absolute -bottom-6 -left-6 rounded-xl px-5 py-4"
+              className="card-elevated animate-float-delayed absolute -bottom-6 -left-6 z-20 rounded-xl px-5 py-4"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-light">
@@ -295,7 +250,7 @@ export function Hero({
               initial={{ opacity: 0, x: 20, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4, ease }}
-              className="card-elevated animate-float absolute -right-4 -top-4 rounded-xl px-5 py-4"
+              className="card-elevated animate-float absolute -right-4 -top-4 z-20 rounded-xl px-5 py-4"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-warm-light">

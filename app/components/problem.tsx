@@ -94,6 +94,22 @@ export function Problem({
               }}
               className="mt-8 h-px w-24 origin-left bg-gradient-to-r from-primary-bright to-warm/50"
             />
+
+            {/* Visual: frustrated business owner */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4, ease }}
+              className="mt-12"
+            >
+              <img
+                src="/images/problem-frustrated-owner.png"
+                alt="Gefrustreerde ondernemer achter een verouderde website"
+                className="w-full rounded-2xl object-cover"
+                style={{ aspectRatio: '16/10' }}
+              />
+            </motion.div>
           </div>
 
           {/* Right: pain point stats */}

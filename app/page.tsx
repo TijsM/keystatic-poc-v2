@@ -7,8 +7,10 @@ import { Process } from './components/process';
 import { Stats } from './components/stats';
 import { Features } from './components/features';
 import { Comparison } from './components/comparison';
+import { VisualBreak } from './components/visual-break';
 import { Pricing } from './components/pricing';
 import { Faq } from './components/faq';
+import { Testimonials } from './components/testimonials';
 import { CtaSection } from './components/cta-section';
 import { Footer } from './components/footer';
 
@@ -24,10 +26,11 @@ export default async function Homepage() {
       reader.singletons.comparison.read(),
     ]);
 
-  const [features, processSteps, faqs] = await Promise.all([
+  const [features, processSteps, faqs, testimonials] = await Promise.all([
     reader.collections.features.all(),
     reader.collections.processSteps.all(),
     reader.collections.faqs.all(),
+    reader.collections.testimonials.all(),
   ]);
 
   return (
@@ -46,6 +49,7 @@ export default async function Homepage() {
         />
         <Process steps={processSteps} />
         <Features features={features} />
+        <VisualBreak />
         <Stats
           items={
             stats?.items ?? [
@@ -66,6 +70,7 @@ export default async function Homepage() {
           tiers={pricing?.tiers ?? []}
           guarantee={pricing?.guarantee ?? ''}
         />
+        <Testimonials testimonials={testimonials} />
         <Faq items={faqs} />
         <CtaSection
           headline={finalCta?.headline ?? ''}

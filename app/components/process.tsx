@@ -29,6 +29,21 @@ const stepIcons = [
   </svg>,
 ];
 
+const stepImages = [
+  {
+    src: '/images/process-step-1-conversation.png',
+    alt: 'Vriendelijk gesprek over de nieuwe website',
+  },
+  {
+    src: '/images/process-step-2-editing.png',
+    alt: 'Ondernemer past eenvoudig content aan op een tablet',
+  },
+  {
+    src: '/images/process-step-3-maintenance.png',
+    alt: 'Automatisch onderhoud en updates op de achtergrond',
+  },
+];
+
 export function Process({ steps }: { steps: Step[] }) {
   const sorted = [...steps].sort(
     (a, b) => (a.entry.stepNumber ?? 0) - (b.entry.stepNumber ?? 0),
@@ -117,7 +132,19 @@ export function Process({ steps }: { steps: Step[] }) {
                     )}
                   </div>
 
-                  <h3 className="mt-8 font-heading text-2xl text-foreground md:text-3xl">
+                  {/* Step illustration */}
+                  {stepImages[i] && (
+                    <div className="mt-6">
+                      <img
+                        src={stepImages[i].src}
+                        alt={stepImages[i].alt}
+                        className="w-full rounded-xl object-cover"
+                        style={{ aspectRatio: '16/10' }}
+                      />
+                    </div>
+                  )}
+
+                  <h3 className="mt-6 font-heading text-2xl text-foreground md:text-3xl">
                     {step.entry.title}
                   </h3>
                   <p className="mt-3 leading-relaxed text-muted">
