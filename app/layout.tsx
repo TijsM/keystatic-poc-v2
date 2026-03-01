@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Instrument_Serif, Geist } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 
 const instrumentSerif = Instrument_Serif({
@@ -199,6 +200,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
     </html>
   );
 }
