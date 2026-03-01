@@ -71,12 +71,14 @@ export default async function Homepage() {
           headline={finalCta?.headline ?? ''}
           subtext={finalCta?.subtext ?? ''}
           buttonText={finalCta?.buttonText ?? 'Neem contact op'}
+          email={siteSettings?.email ?? 'hello@rodi-digital.com'}
+          whatsapp={siteSettings?.whatsapp ?? '+32499721771'}
         />
       </main>
       <Footer
         brandName={siteSettings?.brandName ?? 'Rodi Sites'}
         email={siteSettings?.email ?? 'hello@rodi-digital.com'}
-        whatsapp={siteSettings?.whatsapp ?? ''}
+        whatsapp={siteSettings?.whatsapp ?? '+32499721771'}
         address={siteSettings?.address ?? ''}
         postalCode={siteSettings?.postalCode ?? ''}
         city={siteSettings?.city ?? ''}
