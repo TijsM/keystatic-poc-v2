@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     template: '%s | Rodi Sites',
   },
   description:
-    'Website laten maken? Rodi Sites bouwt professionele websites voor ondernemers: schilders, tandartsen, loodgieters en meer. Geen opstartkosten, alles inbegrepen vanaf €79 per maand.',
+    'Website laten maken? Rodi Sites bouwt professionele websites voor ondernemers: schilders, tandartsen, loodgieters en meer. Geen opstartkosten, alles inbegrepen vanaf €75 per maand.',
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Professionele Website voor je Bedrijf | Rodi Sites',
     description:
-      'Een professionele website op maat, volledig onderhouden vanaf €79 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
+      'Een professionele website op maat, volledig onderhouden vanaf €75 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
     url: 'https://rodi-sites.nl',
     siteName: 'Rodi Sites',
     locale: 'nl_NL',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Professionele Website voor je Bedrijf | Rodi Sites',
     description:
-      'Website laten maken? Geen opstartkosten, alles inbegrepen vanaf €79/maand. Voor schilders, tandartsen, loodgieters en meer.',
+      'Website laten maken? Geen opstartkosten, alles inbegrepen vanaf €75/maand. Voor schilders, tandartsen, loodgieters en meer.',
   },
 };
 
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     '@type': 'Country',
                     name: 'Nederland',
                   },
-                  priceRange: '€79 - €149 per maand',
+                  priceRange: '€75 - €129 per maand',
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
                     name: 'Website abonnementen',
@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       {
                         '@type': 'Offer',
                         name: 'Basis',
-                        price: '79',
+                        price: '75',
                         priceCurrency: 'EUR',
                         description:
                           'Professionele one-pager website met hosting, onderhoud en SEO inbegrepen.',
@@ -99,7 +99,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       {
                         '@type': 'Offer',
                         name: 'Professioneel',
-                        price: '149',
+                        price: '129',
                         priceCurrency: 'EUR',
                         description:
                           'Website met meerdere paginas, zelf aanpassen, contactformulier, WhatsApp-knop en uitgebreide SEO.',
@@ -129,8 +129,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   },
                   offers: {
                     '@type': 'AggregateOffer',
-                    lowPrice: '79',
-                    highPrice: '149',
+                    lowPrice: '75',
+                    highPrice: '129',
                     priceCurrency: 'EUR',
                   },
                 },

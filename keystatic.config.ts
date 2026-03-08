@@ -172,5 +172,66 @@ export default config({
         content: fields.markdoc({ label: 'Content' }),
       },
     }),
+    pages: collection({
+      label: 'Pagina\'s',
+      slugField: 'slug',
+      path: 'content/pages/*',
+      schema: {
+        slug: fields.slug({ name: { label: 'URL slug' } }),
+        metaTitle: fields.text({ label: 'Meta titel (max 60 tekens)' }),
+        metaDescription: fields.text({
+          label: 'Meta beschrijving (max 160 tekens)',
+          multiline: true,
+        }),
+        industry: fields.text({ label: 'Branche naam' }),
+        heroHeadline: fields.text({ label: 'Hero headline' }),
+        heroSub: fields.text({ label: 'Hero subtekst', multiline: true }),
+        introText: fields.text({
+          label: 'Introductietekst',
+          multiline: true,
+        }),
+        painPoints: fields.array(
+          fields.object({
+            icon: fields.text({ label: 'Icon (emoji)' }),
+            title: fields.text({ label: 'Titel' }),
+            description: fields.text({
+              label: 'Beschrijving',
+              multiline: true,
+            }),
+          }),
+          {
+            label: 'Pijnpunten',
+            itemLabel: (props) => props.fields.title.value || 'Pijnpunt',
+          },
+        ),
+        benefits: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titel' }),
+            description: fields.text({
+              label: 'Beschrijving',
+              multiline: true,
+            }),
+          }),
+          {
+            label: 'Voordelen',
+            itemLabel: (props) => props.fields.title.value || 'Voordeel',
+          },
+        ),
+        features: fields.array(fields.text({ label: 'Feature' }), {
+          label: 'Wat zit erin',
+          itemLabel: (props) => props.value || 'Feature',
+        }),
+        faqs: fields.array(
+          fields.object({
+            question: fields.text({ label: 'Vraag' }),
+            answer: fields.text({ label: 'Antwoord', multiline: true }),
+          }),
+          {
+            label: 'Veelgestelde vragen',
+            itemLabel: (props) => props.fields.question.value || 'Vraag',
+          },
+        ),
+      },
+    }),
   },
 });

@@ -1,14 +1,26 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { FadeIn } from './ui/fade-in';
 
 const navLinks = [
-  { label: 'Hoe het werkt', href: '#proces' },
-  { label: 'Voordelen', href: '#voordelen' },
-  { label: 'Prijzen', href: '#prijzen' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Website laten maken', href: '/website-laten-maken' },
+  { label: 'Werkwijze', href: '/werkwijze' },
+  { label: 'Prijzen', href: '/prijzen' },
+  { label: 'Over ons', href: '/over-ons' },
+  { label: 'Contact', href: '/#contact' },
+];
+
+const industryLinks = [
+  { label: 'Schilders', href: '/website-voor-schilders' },
+  { label: 'Tandartsen', href: '/website-voor-tandartsen' },
+  { label: 'Loodgieters', href: '/website-voor-loodgieters' },
+  { label: 'Kappers', href: '/website-voor-kappers' },
+  { label: 'Fysiotherapeuten', href: '/website-voor-fysiotherapeuten' },
+  { label: 'Restaurants', href: '/website-voor-restaurants' },
+  { label: 'Makelaars', href: '/website-voor-makelaars' },
+  { label: 'Personal trainers', href: '/website-voor-personal-trainers' },
 ];
 
 export function Footer({
@@ -34,7 +46,7 @@ export function Footer({
     <footer className="relative overflow-hidden border-t border-border/50 bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
-          <div className="grid gap-12 md:grid-cols-3 md:gap-8">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
             <div>
               <p className="text-3xl">
                 <span className="font-heading text-foreground">Rodi</span>
@@ -75,12 +87,30 @@ export function Footer({
               <ul className="mt-5 space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.href}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-muted transition-colors duration-300 hover:text-foreground"
                     >
                       {link.label}
-                    </a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <nav aria-label="Websites per branche">
+              <p className="text-xs font-semibold tracking-widest text-foreground uppercase">
+                Branches
+              </p>
+              <ul className="mt-5 space-y-3">
+                {industryLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted transition-colors duration-300 hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

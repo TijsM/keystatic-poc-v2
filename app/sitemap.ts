@@ -1,8 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { reader } from './reader';
 
 const BASE_URL = 'https://rodi-sites.nl';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const pageSlugs = await reader.collections.pages.list();
+
   return [
     {
       url: BASE_URL,
@@ -10,5 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    ...pageSlugs.map((slug) => ({
+      url: `${BASE_URL}/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
   ];
 }
