@@ -30,8 +30,28 @@ export default async function Homepage() {
     reader.collections.faqs.all(),
   ]);
 
+  const homeFaqs = faqs.map((f) => f.entry);
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
       <ScrollProgress />
       <Navbar brandName={siteSettings?.brandName ?? 'Rodi Sites'} />
       <main id="main">

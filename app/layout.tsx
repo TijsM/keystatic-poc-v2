@@ -153,67 +153,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     priceCurrency: 'EUR',
                   },
                 },
-                {
-                  '@type': 'FAQPage',
-                  mainEntity: [
-                    {
-                      '@type': 'Question',
-                      name: 'Wat krijg ik precies voor het maandbedrag?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Een volledig op maat gemaakte website, inclusief hosting, onderhoud, beveiligingsupdates en technische ondersteuning. Wij houden je website snel, veilig en up-to-date.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Zijn er opstartkosten?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Nee. Ontwerp, bouw en lancering zitten volledig in je maandtarief. Je hoeft geen grote investering vooraf te doen.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Hoe snel is mijn website klaar?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'De meeste websites zijn binnen twee weken live. Na een kort gesprek maken we een ontwerp, jij geeft feedback, en wij lanceren de site.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Zit ik vast aan een contract?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Nee. Na de eerste 6 maanden kun je maandelijks opzeggen, zonder boetes of kleine lettertjes. We bieden een 30 dagen niet-goed-geld-terug garantie.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Kan ik zelf teksten en foto\'s aanpassen?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Ja, bij de pakketten met beheertoegang pas je zelf teksten en foto\'s aan via een simpel beheerpaneel. Net zo makkelijk als een e-mail typen. Kom je er niet uit? Dan helpen wij je kosteloos.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Is hosting inbegrepen?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Ja, snelle en betrouwbare hosting zit in het maandtarief. Je hoeft niets apart af te sluiten of zelf te regelen. We gebruiken premium hosting met 99,9% uptime, zodat je website altijd bereikbaar is voor je klanten.',
-                      },
-                    },
-                    {
-                      '@type': 'Question',
-                      name: 'Kan ik later extra functies toevoegen?',
-                      acceptedAnswer: {
-                        '@type': 'Answer',
-                        text: 'Ja. Denk aan een afsprakenplanner, koppeling met je boekhoudsoftware of een meertalige website. Neem contact op en we bespreken de mogelijkheden.',
-                      },
-                    },
-                  ],
-                },
               ],
             }),
           }}
