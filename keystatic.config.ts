@@ -169,6 +169,13 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        metaDescription: fields.text({
+          label: 'Meta beschrijving',
+          multiline: true,
+        }),
+        publishDate: fields.text({ label: 'Publicatiedatum (YYYY-MM-DD)' }),
+        category: fields.text({ label: 'Categorie' }),
+        excerpt: fields.text({ label: 'Samenvatting', multiline: true }),
         content: fields.markdoc({ label: 'Content' }),
       },
     }),
@@ -228,6 +235,34 @@ export default config({
           }),
           {
             label: 'Veelgestelde vragen',
+            itemLabel: (props) => props.fields.question.value || 'Vraag',
+          },
+        ),
+      },
+    }),
+    locationPages: collection({
+      label: "Locatie pagina's",
+      slugField: 'slug',
+      path: 'content/location-pages/*',
+      format: { contentField: 'body' },
+      schema: {
+        slug: fields.slug({ name: { label: 'URL slug' } }),
+        metaTitle: fields.text({ label: 'Meta titel' }),
+        metaDescription: fields.text({
+          label: 'Meta beschrijving',
+          multiline: true,
+        }),
+        heroHeadline: fields.text({ label: 'Hero headline' }),
+        heroSub: fields.text({ label: 'Hero subtekst', multiline: true }),
+        targetLocation: fields.text({ label: 'Doellocatie' }),
+        body: fields.markdoc({ label: 'Inhoud' }),
+        faqs: fields.array(
+          fields.object({
+            question: fields.text({ label: 'Vraag' }),
+            answer: fields.text({ label: 'Antwoord', multiline: true }),
+          }),
+          {
+            label: 'FAQs',
             itemLabel: (props) => props.fields.question.value || 'Vraag',
           },
         ),

@@ -67,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               '@graph': [
                 {
                   '@type': 'LocalBusiness',
+                  '@id': 'https://rodi-sites.nl/#business',
                   name: 'Rodi Sites',
                   description:
                     'Professionele websites als abonnement voor het MKB',
@@ -79,10 +80,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     addressLocality: "'s-Hertogenbosch",
                     addressCountry: 'NL',
                   },
-                  areaServed: {
-                    '@type': 'Country',
-                    name: 'Nederland',
+                  geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: 51.6978,
+                    longitude: 5.3037,
                   },
+                  areaServed: [
+                    {
+                      '@type': 'City',
+                      name: "'s-Hertogenbosch",
+                    },
+                    {
+                      '@type': 'Country',
+                      name: 'Nederland',
+                    },
+                  ],
                   priceRange: '€75 - €129 per maand',
                   hasOfferCatalog: {
                     '@type': 'OfferCatalog',
@@ -114,11 +126,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   },
                 },
                 {
+                  '@type': 'Organization',
+                  '@id': 'https://rodi-sites.nl/#organization',
+                  name: 'Rodi Sites',
+                  url: 'https://rodi-sites.nl',
+                  email: 'hello@rodi-digital.com',
+                  sameAs: [],
+                },
+                {
                   '@type': 'Service',
                   name: 'Website abonnement',
                   provider: {
-                    '@type': 'LocalBusiness',
-                    name: 'Rodi Sites',
+                    '@id': 'https://rodi-sites.nl/#business',
                   },
                   serviceType: 'Webdesign als abonnement',
                   description:

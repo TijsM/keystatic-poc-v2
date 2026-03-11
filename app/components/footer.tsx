@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { FadeIn } from './ui/fade-in';
 
 const navLinks = [
-  { label: 'Website laten maken', href: '/website-laten-maken' },
+  { label: 'Website laten maken', href: '/website-laten-maken-den-bosch' },
   { label: 'Werkwijze', href: '/werkwijze' },
   { label: 'Prijzen', href: '/prijzen' },
   { label: 'Over ons', href: '/over-ons' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -21,6 +22,19 @@ const industryLinks = [
   { label: 'Restaurants', href: '/website-voor-restaurants' },
   { label: 'Makelaars', href: '/website-voor-makelaars' },
   { label: 'Personal trainers', href: '/website-voor-personal-trainers' },
+  { label: 'Timmermannen', href: '/website-voor-timmermannen' },
+  { label: 'Elektriciens', href: '/website-voor-elektriciens' },
+  { label: 'Aannemers', href: '/website-voor-aannemers' },
+  { label: 'Hoveniers', href: '/website-voor-hoveniers' },
+  { label: 'Stukadoors', href: '/website-voor-stukadoors' },
+  { label: 'Klusbedrijven', href: '/website-voor-klusbedrijven' },
+];
+
+const locationLinks = [
+  { label: 'Website laten maken Den Bosch', href: '/website-laten-maken-den-bosch' },
+  { label: 'Website bouwen Den Bosch', href: '/website-bouwen-den-bosch' },
+  { label: 'Webdesign Den Bosch', href: '/webdesign-den-bosch' },
+  { label: 'Website voor vakmannen', href: '/website-voor-vakmannen' },
 ];
 
 export function Footer({
@@ -46,7 +60,7 @@ export function Footer({
     <footer className="relative overflow-hidden border-t border-border/50 bg-surface py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <FadeIn>
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5 md:gap-8">
             <div>
               <p className="text-3xl">
                 <span className="font-heading text-foreground">Rodi</span>
@@ -104,6 +118,24 @@ export function Footer({
               </p>
               <ul className="mt-5 space-y-3">
                 {industryLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-muted transition-colors duration-300 hover:text-foreground"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <nav aria-label="Locaties">
+              <p className="text-xs font-semibold tracking-widest text-foreground uppercase">
+                Locaties
+              </p>
+              <ul className="mt-5 space-y-3">
+                {locationLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
