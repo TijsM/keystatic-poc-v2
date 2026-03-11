@@ -18,7 +18,7 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rodi-sites.nl'),
+  metadataBase: new URL('https://rodi-sites.com'),
   title: {
     default: 'Professionele Website voor je Bedrijf | Rodi Sites',
     template: '%s | Rodi Sites',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Professionele Website voor je Bedrijf | Rodi Sites',
     description:
       'Een professionele website op maat, volledig onderhouden vanaf €75 per maand. Geen opstartkosten. Inclusief ontwerp, hosting, onderhoud en SEO.',
-    url: 'https://rodi-sites.nl',
+    url: 'https://rodi-sites.com',
     siteName: 'Rodi Sites',
     locale: 'nl_NL',
     type: 'website',
@@ -67,11 +67,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               '@graph': [
                 {
                   '@type': 'LocalBusiness',
-                  '@id': 'https://rodi-sites.nl/#business',
+                  '@id': 'https://rodi-sites.com/#business',
                   name: 'Rodi Sites',
                   description:
                     'Professionele websites als abonnement voor het MKB',
-                  url: 'https://rodi-sites.nl',
+                  url: 'https://rodi-sites.com',
                   email: 'hello@rodi-digital.com',
                   address: {
                     '@type': 'PostalAddress',
@@ -127,9 +127,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 },
                 {
                   '@type': 'Organization',
-                  '@id': 'https://rodi-sites.nl/#organization',
+                  '@id': 'https://rodi-sites.com/#organization',
                   name: 'Rodi Sites',
-                  url: 'https://rodi-sites.nl',
+                  url: 'https://rodi-sites.com',
                   email: 'hello@rodi-digital.com',
                   sameAs: [],
                 },
@@ -137,7 +137,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   '@type': 'Service',
                   name: 'Website abonnement',
                   provider: {
-                    '@id': 'https://rodi-sites.nl/#business',
+                    '@id': 'https://rodi-sites.com/#business',
                   },
                   serviceType: 'Webdesign als abonnement',
                   description:
