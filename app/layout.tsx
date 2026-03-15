@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Instrument_Serif, Geist } from 'next/font/google';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { FloatingWhatsApp } from './components/floating-whatsapp';
 import './globals.css';
 
 const instrumentSerif = Instrument_Serif({
@@ -46,6 +47,7 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+
   return (
     <html
       lang="nl"
@@ -59,6 +61,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Ga naar inhoud
         </a>
         {children}
+        <FloatingWhatsApp whatsapp="+32499721771" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

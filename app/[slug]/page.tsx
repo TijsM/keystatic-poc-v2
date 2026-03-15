@@ -146,7 +146,7 @@ export default async function SlugPage(props: {
 
     return (
       <>
-        <SubpageNavbar brandName={settings.brandName} />
+        <SubpageNavbar brandName={settings.brandName} whatsapp={settings.whatsapp} />
         <main id="main" className="pt-20">
           <IndustryPage
             data={{
@@ -160,6 +160,7 @@ export default async function SlugPage(props: {
               faqs: page.faqs,
               tiers: pricing?.tiers ?? [],
               guarantee: pricing?.guarantee ?? '',
+              whatsapp: settings.whatsapp,
             }}
           />
         </main>
@@ -248,7 +249,7 @@ export default async function SlugPage(props: {
 
     return (
       <>
-        <SubpageNavbar brandName={settings.brandName} />
+        <SubpageNavbar brandName={settings.brandName} whatsapp={settings.whatsapp} />
         <main id="main" className="pt-20">
           <LocationPage
             data={{
@@ -259,6 +260,7 @@ export default async function SlugPage(props: {
               faqs: locationPage.faqs,
               tiers: pricing?.tiers ?? [],
               guarantee: pricing?.guarantee ?? '',
+              whatsapp: settings.whatsapp,
             }}
           />
         </main>
@@ -303,7 +305,7 @@ export default async function SlugPage(props: {
 
   return (
     <>
-      <SubpageNavbar brandName={settings.brandName} />
+      <SubpageNavbar brandName={settings.brandName} whatsapp={settings.whatsapp} />
       <main id="main" className="pt-20">
         <article className="py-16 lg:py-24">
           <div className="mx-auto max-w-3xl px-6 lg:px-8">

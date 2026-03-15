@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 import { Button } from './ui/button';
+import { whatsappUrl } from '../lib/whatsapp';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -50,10 +51,12 @@ export function Hero({
   headline,
   subheadline,
   ctaText,
+  whatsapp,
 }: {
   headline: string;
   subheadline: string;
   ctaText: string;
+  whatsapp: string;
 }) {
   const sectionRef = useRef(null);
   const shouldReduceMotion = useReducedMotion();
@@ -153,7 +156,12 @@ export function Hero({
             transition={{ duration: 0.8, delay: 1.1, ease }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button href="#contact" size="large">
+            <Button
+              href={whatsappUrl(whatsapp, 'Hoi! Ik wil graag meer weten over een website.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              size="large"
+            >
               {ctaText}
             </Button>
             <a

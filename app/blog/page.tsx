@@ -59,7 +59,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <SubpageNavbar brandName={settings.brandName} />
+      <SubpageNavbar brandName={settings.brandName} whatsapp={settings.whatsapp} />
       <main id="main" className="pt-20">
         <section className="bg-background py-16 lg:py-24">
           <div className="mx-auto max-w-3xl px-6 lg:px-8">

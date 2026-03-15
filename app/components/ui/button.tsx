@@ -9,12 +9,16 @@ export function Button({
   href,
   className = '',
   size = 'default',
+  target,
+  rel,
 }: {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'white';
   href?: string;
   className?: string;
   size?: 'default' | 'large';
+  target?: string;
+  rel?: string;
 }) {
   const baseStyles =
     'relative inline-flex items-center justify-center rounded-full font-semibold transition-colors cursor-pointer overflow-hidden active:translate-y-px';
@@ -34,6 +38,8 @@ export function Button({
   return (
     <Component
       href={href}
+      target={target}
+      rel={rel}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 400, damping: 17 }}

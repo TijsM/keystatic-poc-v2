@@ -78,8 +78,15 @@ export function CtaSection({
               className="mt-8 flex flex-wrap gap-x-8 gap-y-3"
             >
               <span className="flex items-center gap-2.5 text-sm text-white/35">
+                <span className="relative h-2 w-2">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/60" />
+                  <span className="absolute inset-0 rounded-full bg-emerald-400" />
+                </span>
+                Nu beschikbaar
+              </span>
+              <span className="flex items-center gap-2.5 text-sm text-white/35">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />
-                Reactie binnen 24 uur
+                Reactie binnen een paar minuten
               </span>
               <span className="flex items-center gap-2.5 text-sm text-white/35">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80" />

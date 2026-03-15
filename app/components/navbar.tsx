@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { whatsappUrl } from '../lib/whatsapp';
 
 const navLinks = [
   { label: 'Hoe het werkt', href: '#proces' },
@@ -10,7 +11,7 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ];
 
-export function Navbar({ brandName }: { brandName: string }) {
+export function Navbar({ brandName, whatsapp }: { brandName: string; whatsapp: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
@@ -71,7 +72,9 @@ export function Navbar({ brandName }: { brandName: string }) {
             </a>
           ))}
           <a
-            href="#contact"
+            href={whatsappUrl(whatsapp, 'Hoi! Ik wil graag meer weten over een website.')}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-foreground px-6 py-2.5 text-[13px] font-semibold text-background transition-all duration-300 hover:bg-foreground/85"
           >
             Contact
@@ -125,7 +128,9 @@ export function Navbar({ brandName }: { brandName: string }) {
               </motion.a>
             ))}
             <motion.a
-              href="#contact"
+              href={whatsappUrl(whatsapp, 'Hoi! Ik wil graag meer weten over een website.')}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { TextReveal } from './ui/text-reveal';
 import { Button } from './ui/button';
+import { whatsappUrl } from '../lib/whatsapp';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -19,9 +20,11 @@ type Tier = {
 export function Pricing({
   tiers,
   guarantee,
+  whatsapp,
 }: {
   tiers: readonly Tier[];
   guarantee: string;
+  whatsapp?: string;
 }) {
 
   return (
@@ -165,14 +168,27 @@ export function Pricing({
 
                 {/* CTA */}
                 <div className="mt-8">
-                  <Button
-                    href="#contact"
-                    variant={tier.highlighted ? 'primary' : 'secondary'}
-                    size="large"
-                    className="w-full"
-                  >
-                    {tier.ctaText}
-                  </Button>
+                  {whatsapp ? (
+                    <Button
+                      href={whatsappUrl(whatsapp, `Hoi! Ik heb interesse in het ${tier.name} pakket.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant={tier.highlighted ? 'primary' : 'secondary'}
+                      size="large"
+                      className="w-full"
+                    >
+                      {tier.ctaText}
+                    </Button>
+                  ) : (
+                    <Button
+                      href="#contact"
+                      variant={tier.highlighted ? 'primary' : 'secondary'}
+                      size="large"
+                      className="w-full"
+                    >
+                      {tier.ctaText}
+                    </Button>
+                  )}
                 </div>
               </div>
             </motion.div>

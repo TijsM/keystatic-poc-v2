@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
+import { whatsappUrl } from '../lib/whatsapp';
 
 const navLinks = [
   { label: 'Hoe het werkt', href: '/#proces' },
@@ -11,7 +12,7 @@ const navLinks = [
   { label: 'FAQ', href: '/#faq' },
 ];
 
-export function SubpageNavbar(_props: { brandName: string }) {
+export function SubpageNavbar({ whatsapp }: { brandName: string; whatsapp: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
@@ -70,12 +71,14 @@ export function SubpageNavbar(_props: { brandName: string }) {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/#contact"
+          <a
+            href={whatsappUrl(whatsapp, 'Hoi! Ik wil graag meer weten over een website.')}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full bg-foreground px-6 py-2.5 text-[13px] font-semibold text-background transition-all duration-300 hover:bg-foreground/85"
           >
             Contact
-          </Link>
+          </a>
         </div>
 
         <button
@@ -132,13 +135,15 @@ export function SubpageNavbar(_props: { brandName: string }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: navLinks.length * 0.05 }}
             >
-              <Link
-                href="/#contact"
+              <a
+                href={whatsappUrl(whatsapp, 'Hoi! Ik wil graag meer weten over een website.')}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
                 className="mt-4 inline-block rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background"
               >
                 Contact
-              </Link>
+              </a>
             </motion.div>
           </motion.div>
         )}

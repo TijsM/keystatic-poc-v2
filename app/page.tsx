@@ -53,12 +53,13 @@ export default async function Homepage() {
         }}
       />
       <ScrollProgress />
-      <Navbar brandName={siteSettings?.brandName ?? 'Rodi Sites'} />
+      <Navbar brandName={siteSettings?.brandName ?? 'Rodi Sites'} whatsapp={siteSettings?.whatsapp ?? '+32499721771'} />
       <main id="main">
         <Hero
           headline={hero?.headline ?? ''}
           subheadline={hero?.subheadline ?? ''}
           ctaText={hero?.ctaText ?? 'Start vandaag'}
+          whatsapp={siteSettings?.whatsapp ?? '+32499721771'}
         />
         <Problem
           headline={problem?.headline ?? ''}
@@ -85,6 +86,7 @@ export default async function Homepage() {
         <Pricing
           tiers={pricing?.tiers ?? []}
           guarantee={pricing?.guarantee ?? ''}
+          whatsapp={siteSettings?.whatsapp ?? '+32499721771'}
         />
         <Faq items={faqs} />
         <CtaSection
